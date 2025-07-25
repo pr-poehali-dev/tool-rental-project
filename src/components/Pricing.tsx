@@ -3,11 +3,11 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Pricing() {
   return (
-    <section id="prices" className="py-16 bg-white opacity-0 animate-fade-in" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
+    <section id="prices" className="py-16 bg-gradient-to-br from-emerald-50 to-teal-100 opacity-0 animate-fade-in" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
         <h2 className="font-heading text-3xl font-bold text-center mb-12">Тарифы аренды</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <Card className="text-center">
+          <Card className="text-center border-0 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Сутки</CardTitle>
               <CardDescription>До 24 часов</CardDescription>
@@ -23,7 +23,7 @@ export default function Pricing() {
             </CardContent>
           </Card>
 
-          <Card className="text-center border-primary">
+          <Card className="text-center border-2 border-emerald-400 bg-white/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden">
             <CardHeader>
               <Badge className="mb-2">Популярно</Badge>
               <CardTitle className="text-2xl text-primary">Неделя</CardTitle>
@@ -40,7 +40,7 @@ export default function Pricing() {
             </CardContent>
           </Card>
 
-          <Card className="text-center">
+          <Card className="text-center border-0 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Месяц</CardTitle>
               <CardDescription>30 суток</CardDescription>

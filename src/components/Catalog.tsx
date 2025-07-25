@@ -16,12 +16,12 @@ interface CatalogProps {
 
 export default function Catalog({ addToCart }: CatalogProps) {
   return (
-    <section id="catalog" className="py-16 bg-gray-50 opacity-0 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
+    <section id="catalog" className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100 opacity-0 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
         <h2 className="font-heading text-3xl font-bold text-center mb-12">Популярное оборудование</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
             <CardHeader className="pb-3">
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
                 <img 
@@ -54,7 +54,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
             <CardHeader className="pb-3">
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
                 <img 
@@ -86,7 +86,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
             <CardHeader className="pb-3">
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
                 <img 
@@ -119,7 +119,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
             <CardHeader className="pb-3">
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
                 <Icon name="Hammer" size={64} className="text-secondary" />
