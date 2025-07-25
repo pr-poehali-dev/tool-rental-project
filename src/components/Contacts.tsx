@@ -8,7 +8,9 @@ export default function Contacts() {
   return (
     <section id="contacts" className="py-16 from-orange-50 to-yellow-100 opacity-0 animate-fade-in bg-gray-200" style={{animationDelay: '1.0s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
-        <h2 className="font-heading text-3xl font-bold text-center mb-12">Контакты</h2>
+        <div className="text-center mb-12">
+          <h2 className="font-heading text-3xl font-bold border-4 border-orange-400/30 rounded-xl px-8 py-4 bg-orange-50/50 backdrop-blur-sm inline-block">Контакты</h2>
+        </div>
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
             <h3 className="font-heading text-2xl font-semibold mb-6">Свяжитесь с нами</h3>
