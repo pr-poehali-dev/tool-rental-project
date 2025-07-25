@@ -88,34 +88,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
 
 
-          <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
-            <CardHeader className="pb-3">
-              <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-                <Icon name="Hammer" size={64} className="text-secondary" />
-              </div>
-              <CardTitle className="text-lg">Строительный инструмент</CardTitle>
-              <CardDescription>От 200₽/сутки</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex gap-2 mb-3">
-                <Badge variant="secondary">Ручной</Badge>
-                <Badge variant="secondary">Электро</Badge>
-              </div>
-              <Button 
-                className="w-full" 
-                variant="outline"
-                onClick={() => addToCart({
-                  id: 'tools',
-                  name: 'Строительный инструмент',
-                  price: 200,
-                  image: '/placeholder.svg'
-                })}
-              >
-                <Icon name="Plus" size={16} className="mr-2" />
-                В корзину
-              </Button>
-            </CardContent>
-          </Card>
+
         </div>
         
         <div className="text-center mt-8">
