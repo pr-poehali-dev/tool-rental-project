@@ -3,9 +3,60 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
+
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
 
 export default function Index() {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const addToCart = (item: Omit<CartItem, 'quantity'>) => {
+    setCartItems(prev => {
+      const existing = prev.find(cartItem => cartItem.id === item.id);
+      if (existing) {
+        return prev.map(cartItem => 
+          cartItem.id === item.id 
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      }
+      return [...prev, { ...item, quantity: 1 }];
+    });
+  };
+
+  const removeFromCart = (id: string) => {
+    setCartItems(prev => prev.filter(item => item.id !== id));
+  };
+
+  const updateQuantity = (id: string, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    setCartItems(prev => 
+      prev.map(item => 
+        item.id === id ? { ...item, quantity } : item
+      )
+    );
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+
+  const getTotalItems = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -13,7 +64,7 @@ export default function Index() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Icon name="Wrench" size={32} className="text-white" />
+              <Icon name="Mountain" size={32} className="text-white" />
               <h1 className="font-heading text-2xl font-bold">ToolNord</h1>
             </div>
             <nav className="hidden md:flex space-x-6">
@@ -22,16 +73,106 @@ export default function Index() {
               <a href="#conditions" className="hover:text-gray-200 transition-colors">Условия</a>
               <a href="#contacts" className="hover:text-gray-200 transition-colors">Контакты</a>
             </nav>
-            <Button variant="secondary" size="sm">
-              <Icon name="Phone" size={16} className="mr-2" />
-              Звонок
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="secondary" size="sm" className="relative">
+                    <Icon name="ShoppingCart" size={16} className="mr-2" />
+                    Корзина
+                    {getTotalItems() > 0 && (
+                      <Badge className="absolute -top-2 -right-2 bg-white text-primary min-w-[20px] h-5 flex items-center justify-center text-xs p-0">
+                        {getTotalItems()}
+                      </Badge>
+                    )}
+                  </Button>
+                </SheetTrigger>
+                <SheetContent className="w-full sm:max-w-md">
+                  <SheetHeader>
+                    <SheetTitle>Корзина</SheetTitle>
+                    <SheetDescription>
+                      {cartItems.length === 0 ? 'Корзина пуста' : `Товаров в корзине: ${getTotalItems()}`}
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div className="mt-6">
+                    {cartItems.length === 0 ? (
+                      <div className="text-center py-8">
+                        <Icon name="ShoppingCart" size={48} className="text-gray-300 mx-auto mb-4" />
+                        <p className="text-gray-500">Корзина пуста</p>
+                        <p className="text-sm text-gray-400">Добавьте товары из каталога</p>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="space-y-4 max-h-96 overflow-y-auto">
+                          {cartItems.map(item => (
+                            <div key={item.id} className="flex items-center space-x-3 p-3 border rounded-lg">
+                              <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />
+                              <div className="flex-1">
+                                <h4 className="font-medium text-sm">{item.name}</h4>
+                                <p className="text-sm text-gray-500">{item.price}₽/сутки</p>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                  className="w-8 h-8 p-0"
+                                >
+                                  -
+                                </Button>
+                                <span className="w-8 text-center">{item.quantity}</span>
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                  className="w-8 h-8 p-0"
+                                >
+                                  +
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={() => removeFromCart(item.id)}
+                                  className="w-8 h-8 p-0 text-red-500 hover:text-red-700"
+                                >
+                                  <Icon name="Trash2" size={14} />
+                                </Button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-6 pt-4 border-t">
+                          <div className="flex justify-between items-center mb-4">
+                            <span className="font-semibold">Итого:</span>
+                            <span className="font-semibold text-lg">{getTotalPrice()}₽/сутки</span>
+                          </div>
+                          <Button className="w-full bg-primary hover:bg-primary/90">
+                            <Icon name="CreditCard" size={16} className="mr-2" />
+                            Оформить заказ
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            className="w-full mt-2"
+                            onClick={() => setCartItems([])}
+                          >
+                            Очистить корзину
+                          </Button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </SheetContent>
+              </Sheet>
+              <Button variant="secondary" size="sm">
+                <Icon name="Phone" size={16} className="mr-2" />
+                Звонок
+              </Button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
+      <section className="bg-gradient-to-br from-gray-50 to-white py-20 animate-fade-in">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-5xl font-bold text-primary mb-6">
             Аренда инструментов и туристического снаряжения
@@ -54,10 +195,10 @@ export default function Index() {
       </section>
 
       {/* Features */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white opacity-0 animate-fade-in" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
               <Icon name="Shield" size={48} className="text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl font-semibold mb-2">Качество и надежность</h3>
               <p className="text-secondary">Все инструменты проходят регулярное техобслуживание</p>
@@ -77,7 +218,7 @@ export default function Index() {
       </section>
 
       {/* Catalog Section */}
-      <section id="catalog" className="py-16 bg-gray-50">
+      <section id="catalog" className="py-16 bg-gray-50 opacity-0 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl font-bold text-center mb-12">Популярное оборудование</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -100,7 +241,16 @@ export default function Index() {
                   <Badge variant="secondary">Bosch</Badge>
                   <Badge variant="secondary">Makita</Badge>
                 </div>
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => addToCart({
+                    id: 'drill',
+                    name: 'Дрели и перфораторы',
+                    price: 500,
+                    image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg'
+                  })}
+                >
                   <Icon name="Plus" size={16} className="mr-2" />
                   В корзину
                 </Button>
@@ -123,7 +273,16 @@ export default function Index() {
                 <div className="flex gap-2 mb-3">
                   <Badge variant="secondary">2-4 места</Badge>
                 </div>
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => addToCart({
+                    id: 'tent',
+                    name: 'Палатки туристические',
+                    price: 800,
+                    image: '/img/a567fb75-efd9-4c18-9edc-a4cdc9f3d05b.jpg'
+                  })}
+                >
                   <Icon name="Plus" size={16} className="mr-2" />
                   В корзину
                 </Button>
@@ -147,7 +306,16 @@ export default function Index() {
                   <Badge variant="secondary">GPS</Badge>
                   <Badge variant="secondary">Компас</Badge>
                 </div>
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => addToCart({
+                    id: 'navigation',
+                    name: 'Навигационное оборудование',
+                    price: 300,
+                    image: '/img/9f1aebf9-ef6a-4272-acf3-62ee949b88c5.jpg'
+                  })}
+                >
                   <Icon name="Plus" size={16} className="mr-2" />
                   В корзину
                 </Button>
@@ -167,7 +335,16 @@ export default function Index() {
                   <Badge variant="secondary">Ручной</Badge>
                   <Badge variant="secondary">Электро</Badge>
                 </div>
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => addToCart({
+                    id: 'tools',
+                    name: 'Строительный инструмент',
+                    price: 200,
+                    image: '/placeholder.svg'
+                  })}
+                >
                   <Icon name="Plus" size={16} className="mr-2" />
                   В корзину
                 </Button>
@@ -176,7 +353,7 @@ export default function Index() {
           </div>
           
           <div className="text-center mt-8">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform duration-200">
               Смотреть весь каталог
               <Icon name="ArrowRight" size={20} className="ml-2" />
             </Button>
@@ -185,7 +362,7 @@ export default function Index() {
       </section>
 
       {/* Prices Section */}
-      <section id="prices" className="py-16 bg-white">
+      <section id="prices" className="py-16 bg-white opacity-0 animate-fade-in" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl font-bold text-center mb-12">Тарифы аренды</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -242,7 +419,7 @@ export default function Index() {
       </section>
 
       {/* Conditions Section */}
-      <section id="conditions" className="py-16 bg-gray-50">
+      <section id="conditions" className="py-16 bg-gray-50 opacity-0 animate-fade-in" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl font-bold text-center mb-12">Условия аренды</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -350,7 +527,7 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contacts" className="py-16 bg-white">
+      <section id="contacts" className="py-16 bg-white opacity-0 animate-fade-in" style={{animationDelay: '1.0s', animationFillMode: 'forwards'}}>
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl font-bold text-center mb-12">Контакты</h2>
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
