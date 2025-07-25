@@ -15,10 +15,7 @@ export default function Hero() {
         <h2 className="font-heading text-5xl font-bold text-white mb-6 drop-shadow-lg">
           Аренда инструментов и туристического снаряжения
         </h2>
-        <p className="text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-md">
-          Профессиональный прокат качественного оборудования в Мурманской области. 
-          Всё необходимое для ваших проектов и походов — от строительных инструментов до туристического снаряжения.
-        </p>
+        <p className="text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-md">Профессиональный прокат качественного оборудования в городе Кандалакша. Всё необходимое для ваших проектов и походов — от строительных инструментов до туристического снаряжения.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="bg-primary hover:bg-primary/90">
             <Icon name="Search" size={20} className="mr-2" />
