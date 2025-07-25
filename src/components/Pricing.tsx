@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Pricing() {
   return (
-    <section id="prices" className="py-16 bg-gradient-to-br from-emerald-50 to-teal-100 opacity-0 animate-fade-in" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
+    <section id="prices" className="py-16 from-emerald-50 to-teal-100 opacity-0 animate-fade-in bg-[#ffffff]" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
         <h2 className="font-heading text-3xl font-bold text-center mb-12">Тарифы аренды</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
