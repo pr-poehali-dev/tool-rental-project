@@ -10,12 +10,12 @@ export default function Features() {
             <h3 className="font-heading text-xl font-semibold mb-2">Качество и надежность</h3>
             <p className="text-secondary">Все инструменты проходят регулярное техобслуживание</p>
           </div>
-          <div className="text-center">
+          <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
             <Icon name="Clock" size={48} className="text-primary mx-auto mb-4" />
             <h3 className="font-heading text-xl font-semibold mb-2">Быстрая выдача</h3>
             <p className="text-secondary">Подготовка заказа за 30 минут</p>
           </div>
-          <div className="text-center">
+          <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
             <Icon name="Truck" size={48} className="text-primary mx-auto mb-4" />
             <h3 className="font-heading text-xl font-semibold mb-2">Доставка по области</h3>
             <p className="text-secondary">Привезем оборудование в удобное место</p>
