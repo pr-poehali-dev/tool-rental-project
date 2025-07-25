@@ -37,7 +37,8 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-200">
               <li>+7 (815) 2XX-XX-XX</li>
               <li>info@toolnord.ru</li>
-              <li>г. Мурманск</li>
+              <li>г. Кандалакша
+</li>
               <li>Пн-Вс: 08:00-20:00</li>
             </ul>
           </div>
