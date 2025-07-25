@@ -86,38 +86,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
-            <CardHeader className="pb-3">
-              <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
-                <img 
-                  src="/img/9f1aebf9-ef6a-4272-acf3-62ee949b88c5.jpg" 
-                  alt="Навигационное оборудование" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardTitle className="text-lg">Навигационное оборудование</CardTitle>
-              <CardDescription>От 300₽/сутки</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex gap-2 mb-3">
-                <Badge variant="secondary">GPS</Badge>
-                <Badge variant="secondary">Компас</Badge>
-              </div>
-              <Button 
-                className="w-full" 
-                variant="outline"
-                onClick={() => addToCart({
-                  id: 'navigation',
-                  name: 'Навигационное оборудование',
-                  price: 300,
-                  image: '/img/9f1aebf9-ef6a-4272-acf3-62ee949b88c5.jpg'
-                })}
-              >
-                <Icon name="Plus" size={16} className="mr-2" />
-                В корзину
-              </Button>
-            </CardContent>
-          </Card>
+
 
           <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
             <CardHeader className="pb-3">
