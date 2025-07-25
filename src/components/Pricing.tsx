@@ -5,9 +5,7 @@ export default function Pricing() {
   return (
     <section id="prices" className="py-16 from-emerald-50 to-teal-100 opacity-0 animate-fade-in bg-[#ffffff]" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl font-bold border-4 border-emerald-400/30 rounded-xl px-8 py-4 bg-emerald-50/50 backdrop-blur-sm inline-block">Тарифы аренды</h2>
-        </div>
+        <h2 className="font-heading text-3xl font-bold text-center mb-12">Тарифы аренды</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <Card className="text-center border-0 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
             <CardHeader>

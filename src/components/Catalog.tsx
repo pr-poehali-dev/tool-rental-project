@@ -18,9 +18,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
   return (
     <section id="catalog" className="py-16 from-blue-50 to-indigo-100 opacity-0 animate-fade-in bg-[#ffffff]" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl font-bold border-4 border-blue-400/30 rounded-xl px-8 py-4 bg-blue-50/50 backdrop-blur-sm inline-block">Популярное оборудование</h2>
-        </div>
+        <h2 className="font-heading text-3xl font-bold text-center mb-12">Популярное оборудование</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">

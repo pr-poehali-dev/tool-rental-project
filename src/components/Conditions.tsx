@@ -5,9 +5,7 @@ export default function Conditions() {
   return (
     <section id="conditions" className="py-16 from-purple-50 to-pink-100 opacity-0 animate-fade-in bg-[#ffffff]" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl font-bold border-4 border-purple-400/30 rounded-xl px-8 py-4 bg-purple-50/50 backdrop-blur-sm inline-block">Условия аренды</h2>
-        </div>
+        <h2 className="font-heading text-3xl font-bold text-center mb-12">Условия аренды</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <Card className="border-0 bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
             <CardHeader>
