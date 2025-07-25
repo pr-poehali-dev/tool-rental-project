@@ -27,7 +27,7 @@ export default function Footer() {
               <li><a href="#" className="hover:text-white">Доставка</a></li>
               <li><a href="#" className="hover:text-white">Техническая поддержка</a></li>
               <li><a href="#" className="hover:text-white">Консультации</a></li>
-              <li><a href="#" className="hover:text-white">Обучение</a></li>
+              <li><a href="#" className="hover:text-white"></a></li>
             </ul>
           </div>
           <div>
