@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 
 export default function Conditions() {
   return (
-    <section id="conditions" className="py-16 bg-gradient-to-br from-purple-50 to-pink-100 opacity-0 animate-fade-in" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>
+    <section id="conditions" className="py-16 from-purple-50 to-pink-100 opacity-0 animate-fade-in bg-[#ffffff]" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
         <h2 className="font-heading text-3xl font-bold text-center mb-12">Условия аренды</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
