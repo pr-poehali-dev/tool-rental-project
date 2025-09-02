@@ -22,8 +22,11 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'circular-saw', name: 'Циркулярная пила', price: 450, image: '/img/e67dac9f-7d1f-456c-b6f9-a4910f280dce.jpg', badges: ['160мм', '190мм'] },
     { id: 'reciprocating-saw', name: 'Сабельная пила', price: 400, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Электро', 'Аккум'] },
     { id: 'perforator', name: 'Перфоратор', price: 600, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['SDS+', 'SDS-max'] },
-    { id: 'impact-hammer', name: 'Отбойный молоток', price: 700, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['SDS-max', 'Пневмо'] },
-    { id: 'heat-gun', name: 'Строительный фен', price: 250, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['1800Вт', '2000Вт'] }
+    { id: 'heat-gun', name: 'Строительный фен', price: 250, image: '/img/c595f387-16fe-4eb9-974a-401c46098843.jpg', badges: ['1800Вт', '2000Вт'] },
+    { id: 'renovator', name: 'Реноватор', price: 320, image: '/img/15b1e73f-02b7-4cbd-95d4-eddc56dd38bb.jpg', badges: ['Многофункц', 'Насадки'] },
+    { id: 'electronic-level', name: 'Электронный уровень', price: 180, image: '/img/8f06c9a1-9869-42c7-9362-bfd0da351f06.jpg', badges: ['Лазер', 'Цифровой'] },
+    { id: 'sander', name: 'Шлифовальная машинка', price: 280, image: '/img/c3cba4e6-8d40-4b89-b871-f7b577415f1b.jpg', badges: ['Орбитальная', 'Виброшлиф'] },
+    { id: 'planer', name: 'Электрорубанок', price: 250, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['82мм', '110мм'] }
   ];
 
   const cleaningData = [
@@ -37,7 +40,8 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'generator', name: 'Электрогенератор', price: 1200, image: '/img/46fc1203-245a-4cb8-8105-c1f78c936cc0.jpg', badges: ['3кВт', '5кВт'] },
     { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 200, image: '/img/aa1d29f1-0130-4eb1-9974-6fd1be6b89ef.jpg', badges: ['2т', '3т'] },
     { id: 'work-light', name: 'Прожектор строительный', price: 180, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт', '100Вт'] },
-    { id: 'concrete-mixer', name: 'Бетономешалка', price: 800, image: '/img/46fc1203-245a-4cb8-8105-c1f78c936cc0.jpg', badges: ['150л', '200л'] }
+    { id: 'concrete-mixer', name: 'Бетономешалка', price: 800, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['150л', '200л'] },
+    { id: 'battery-charger', name: 'Зарядное устройство', price: 150, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V', '24V'] }
   ];
 
 

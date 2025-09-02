@@ -19,7 +19,7 @@ export default function Features() {
           >
             <div className="text-6xl mb-4">⚡</div>
             <h3 className="font-heading text-xl font-semibold mb-2">Электроинструменты</h3>
-            <p className="text-secondary">Болгарки, шуруповерты, лобзики, пилы, перфораторы</p>
+            <p className="text-secondary">Болгарки, шуруповерты, лобзики, пилы, перфораторы, реноваторы</p>
           </div>
           <div 
             className="text-center opacity-0 animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-200" 
@@ -37,7 +37,7 @@ export default function Features() {
           >
             <div className="text-6xl mb-4">🏗️</div>
             <h3 className="font-heading text-xl font-semibold mb-2">Оборудование</h3>
-            <p className="text-secondary">Генераторы, домкраты, прожекторы, бетономешалки</p>
+            <p className="text-secondary">Генераторы, домкраты, прожекторы, бетономешалки, зарядные устройства</p>
           </div>
         </div>
       </div>
