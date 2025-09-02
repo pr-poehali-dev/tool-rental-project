@@ -16,10 +16,9 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Каталог</h4>
             <ul className="space-y-2 text-gray-200">
-              <li><a href="#" className="hover:text-white">Строительные инструменты</a></li>
-              <li><a href="#" className="hover:text-white">Туристическое снаряжение</a></li>
-              <li><a href="#" className="hover:text-white">Садовый инвентарь</a></li>
               <li><a href="#" className="hover:text-white">Электроинструменты</a></li>
+              <li><a href="#" className="hover:text-white">Уборка и покраска</a></li>
+              <li><a href="#" className="hover:text-white">Оборудование</a></li>
             </ul>
           </div>
           <div>
