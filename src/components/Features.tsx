@@ -1,24 +1,43 @@
 import Icon from "@/components/ui/icon";
 
 export default function Features() {
+  const scrollToCatalog = () => {
+    document.getElementById('catalog')?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
   return (
     <section className="py-16 bg-white opacity-0 animate-fade-in" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
       <div className="container mx-auto px-4">
+        <h2 className="font-heading text-2xl font-bold text-center mb-12">Категории инструментов</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
-            <Icon name="Shield" size={48} className="text-primary mx-auto mb-4" />
-            <h3 className="font-heading text-xl font-semibold mb-2">Качество и надежность</h3>
-            <p className="text-secondary">Все инструменты проходят регулярное техобслуживание</p>
+          <div 
+            className="text-center opacity-0 animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-200" 
+            style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}
+            onClick={scrollToCatalog}
+          >
+            <div className="text-6xl mb-4">⚡</div>
+            <h3 className="font-heading text-xl font-semibold mb-2">Электроинструменты</h3>
+            <p className="text-secondary">Болгарки, шуруповерты, лобзики, пилы, перфораторы</p>
           </div>
-          <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
-            <Icon name="Clock" size={48} className="text-primary mx-auto mb-4" />
-            <h3 className="font-heading text-xl font-semibold mb-2">Быстрая выдача</h3>
-            <p className="text-secondary">Подготовка заказа за 30 минут</p>
+          <div 
+            className="text-center opacity-0 animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-200" 
+            style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}
+            onClick={scrollToCatalog}
+          >
+            <div className="text-6xl mb-4">🧽</div>
+            <h3 className="font-heading text-xl font-semibold mb-2">Уборка и покраска</h3>
+            <p className="text-secondary">Пароочистители, пылесосы, краскопульты</p>
           </div>
-          <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
-            <Icon name="Truck" size={48} className="text-primary mx-auto mb-4" />
-            <h3 className="font-heading text-xl font-semibold mb-2">Доставка по городу</h3>
-            <p className="text-secondary">Привезем оборудование в удобное место</p>
+          <div 
+            className="text-center opacity-0 animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-200" 
+            style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}
+            onClick={scrollToCatalog}
+          >
+            <div className="text-6xl mb-4">🏗️</div>
+            <h3 className="font-heading text-xl font-semibold mb-2">Оборудование</h3>
+            <p className="text-secondary">Генераторы, домкраты, прожекторы, бетономешалки</p>
           </div>
         </div>
       </div>

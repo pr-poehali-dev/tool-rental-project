@@ -47,12 +47,7 @@ export default function Conditions() {
                 </li>
                 <li className="flex items-start">
                   <Icon name="Check" size={16} className="text-green-600 mr-2 mt-1" />
-                  <span>Безналичный расчёт
-</span>
-                </li>
-                <li className="flex items-start">
-                  <Icon name="Check" size={16} className="text-green-600 mr-2 mt-1" />
-                  <span></span>
+                  <span>Безналичный расчёт</span>
                 </li>
               </ul>
             </CardContent>
