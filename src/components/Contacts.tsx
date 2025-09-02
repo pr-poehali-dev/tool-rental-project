@@ -19,7 +19,7 @@ export default function Contacts() {
               </div>
               <div className="flex items-center">
                 <Icon name="Mail" className="text-primary mr-3" />
-                <span className="text-lg">info@toolnord.ru</span>
+                <span className="text-lg">toolnord51@mail.ru</span>
               </div>
               <div className="flex items-center">
                 <Icon name="MapPin" className="text-primary mr-3" />
