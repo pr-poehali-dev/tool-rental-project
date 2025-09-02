@@ -139,7 +139,11 @@ export default function Header({
                 </div>
               </SheetContent>
             </Sheet>
-            <Button variant="secondary" size="sm">
+            <Button 
+              variant="secondary" 
+              size="sm"
+              onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Icon name="Phone" size={16} className="mr-2" />
               Звонок
             </Button>
