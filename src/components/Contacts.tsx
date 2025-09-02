@@ -31,7 +31,10 @@ export default function Contacts() {
               </div>
             </div>
             <div className="flex space-x-4">
-              <Button className="bg-primary hover:bg-primary/90">
+              <Button 
+                className="bg-primary hover:bg-primary/90"
+                onClick={() => window.open('tel:+79508924419', '_self')}
+              >
                 <Icon name="Phone" size={16} className="mr-2" />
                 Позвонить
               </Button>
