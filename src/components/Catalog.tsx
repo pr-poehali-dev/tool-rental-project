@@ -24,21 +24,14 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'jigsaw', name: 'Лобзик', price: 350, image: '/img/8d13799b-c272-4b6e-8431-343f50155b8e.jpg', badges: ['Электро', 'Аккум'] },
     { id: 'circular-saw', name: 'Циркулярная пила', price: 450, image: '/img/e67dac9f-7d1f-456c-b6f9-a4910f280dce.jpg', badges: ['160мм', '190мм'] },
     { id: 'reciprocating-saw', name: 'Сабельная пила', price: 400, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Электро', 'Аккум'] },
-    { id: 'drill', name: 'Дрели и перфораторы', price: 500, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['Bosch', 'Makita'] },
-    { id: 'wrench-set', name: 'Накидные ключи', price: 150, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['Набор', '8-22мм'] },
-    { id: 'gas-wrench', name: 'Газовый ключ', price: 200, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['№1', '№2'] },
-    { id: 'adjustable-wrench', name: 'Разводной ключ', price: 100, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['250мм', '300мм'] },
-    { id: 'sledgehammer', name: 'Молоток', price: 120, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['500г', '1кг'] },
     { id: 'perforator', name: 'Перфоратор', price: 600, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['SDS+', 'SDS-max'] },
-    { id: 'screwdrivers', name: 'Отвертки', price: 80, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['Набор', 'Phillips'] },
-    { id: 'level', name: 'Уровень', price: 150, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['60см', '120см'] },
-    { id: 'concrete-mixer', name: 'Бетономешалка', price: 800, image: '/img/46fc1203-245a-4cb8-8105-c1f78c936cc0.jpg', badges: ['150л', '200л'] },
     { id: 'impact-hammer', name: 'Отбойный молоток', price: 700, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['SDS-max', 'Пневмо'] },
     { id: 'heat-gun', name: 'Строительный фен', price: 250, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['1800Вт', '2000Вт'] },
     { id: 'vacuum-cleaner', name: 'Строительный пылесос', price: 300, image: '/img/4fcd20e2-5b36-49fd-b63b-30264773ccab.jpg', badges: ['1200Вт', '1400Вт'] },
     { id: 'paint-sprayer', name: 'Краскопульт', price: 350, image: '/img/2989e866-3828-42a2-bc2d-d4c407f099e4.jpg', badges: ['Электр', 'Пневмо'] },
     { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 200, image: '/img/aa1d29f1-0130-4eb1-9974-6fd1be6b89ef.jpg', badges: ['2т', '3т'] },
-    { id: 'work-light', name: 'Прожектор строительный', price: 180, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт', '100Вт'] }
+    { id: 'work-light', name: 'Прожектор строительный', price: 180, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт', '100Вт'] },
+    { id: 'concrete-mixer', name: 'Бетономешалка', price: 800, image: '/img/46fc1203-245a-4cb8-8105-c1f78c936cc0.jpg', badges: ['150л', '200л'] }
   ];
 
   const campingData = [
