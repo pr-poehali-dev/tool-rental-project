@@ -10,7 +10,8 @@ export default function Footer() {
               <Icon name="Mountain" size={24} />
               <h3 className="font-heading text-xl font-bold">ToolNord</h3>
             </div>
-            <p className="text-gray-200">Надежный прокат инструментов и туристического снаряжения в г. Кандалакша </p>
+            <p className="text-gray-200">Надежный прокат инструментов 
+в г. Кандалакша</p>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Каталог</h4>
