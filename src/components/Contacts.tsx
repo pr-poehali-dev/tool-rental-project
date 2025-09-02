@@ -15,7 +15,7 @@ export default function Contacts() {
             <div className="space-y-4 mb-8">
               <div className="flex items-center">
                 <Icon name="Phone" className="text-primary mr-3" />
-                <span className="text-lg">+7 (815) 2XX-XX-XX</span>
+                <span className="text-lg">+7 (950) 892-44-19</span>
               </div>
               <div className="flex items-center">
                 <Icon name="Mail" className="text-primary mr-3" />
