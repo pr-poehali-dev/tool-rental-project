@@ -37,7 +37,7 @@ export default function Footer() {
               <li>toolnord51@mail.ru</li>
               <li>г. Кандалакша
 </li>
-              <li>Пн-Вс: 08:00-20:00</li>
+              <li>Пн-Вс: 09:00-20:00</li>
             </ul>
           </div>
         </div>
