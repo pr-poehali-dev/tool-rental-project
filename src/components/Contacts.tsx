@@ -35,7 +35,11 @@ export default function Contacts() {
                 <Icon name="Phone" size={16} className="mr-2" />
                 Позвонить
               </Button>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <Button 
+                variant="outline" 
+                className="border-primary text-primary hover:bg-primary hover:text-white"
+                onClick={() => window.open('https://wa.me/message/YO3VHI6CLOQIA1', '_blank')}
+              >
                 <Icon name="MessageSquare" size={16} className="mr-2" />
                 WhatsApp
               </Button>
