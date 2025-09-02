@@ -27,7 +27,7 @@ export default function Contacts() {
               </div>
               <div className="flex items-center">
                 <Icon name="Clock" className="text-primary mr-3" />
-                <span className="text-lg">Пн-Вс: 08:00 - 20:00</span>
+                <span className="text-lg">Пн-Вс: 09:00 - 20:00</span>
               </div>
             </div>
             <div className="flex space-x-4">
