@@ -17,7 +17,7 @@ export default function Features() {
           </div>
           <div className="text-center opacity-0 animate-fade-in" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
             <Icon name="Truck" size={48} className="text-primary mx-auto mb-4" />
-            <h3 className="font-heading text-xl font-semibold mb-2">Доставка по области</h3>
+            <h3 className="font-heading text-xl font-semibold mb-2">Доставка по городу</h3>
             <p className="text-secondary">Привезем оборудование в удобное место</p>
           </div>
         </div>
