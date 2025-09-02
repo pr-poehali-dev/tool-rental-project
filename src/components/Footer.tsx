@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Контакты</h4>
             <ul className="space-y-2 text-gray-200">
-              <li>+7 (815) 2XX-XX-XX</li>
+              <li>+7 (950) 892-44-19</li>
               <li>info@toolnord.ru</li>
               <li>г. Кандалакша
 </li>
