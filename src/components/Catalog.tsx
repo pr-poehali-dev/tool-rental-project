@@ -28,7 +28,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
     { id: 'sander', name: 'Шлифовальная машинка', price: 280, hourlyPrice: 110, image: '/img/c3cba4e6-8d40-4b89-b871-f7b577415f1b.jpg', badges: ['Орбитальная'] },
     { id: 'planer', name: 'Электрорубанок', price: 250, hourlyPrice: 100, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['110мм'] },
-    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/gaikover.jpg', badges: ['1/2"'] }
+    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] }
   ];
 
   const cleaningData = [
@@ -44,13 +44,13 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'work-light', name: 'Прожектор строительный', price: 60, hourlyPrice: 25, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт'] },
     { id: 'concrete-mixer', name: 'Бетономешалка', price: 815, hourlyPrice: 330, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['160л'] },
     { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 65, hourlyPrice: 30, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
-    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: '/img/scissors.jpg', badges: ['42мм'] },
-    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: '/img/welder.jpg', badges: ['1000Вт'] },
-    { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: '/img/stands.jpg', badges: ['Складные'] },
-    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/extension.jpg', badges: ['50м'] },
-    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/level.jpg', badges: ['600мм'] },
-    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/straps.jpg', badges: ['Разные'] },
-    { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: '/img/clamps.jpg', badges: ['F-обр'] }
+    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: '/img/9b0a5ed2-3e34-44a2-a82d-048974e0494c.jpg', badges: ['42мм'] },
+    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: '/img/38e415b6-3942-4f6e-9e73-c57f5b24cc1f.jpg', badges: ['1000Вт'] },
+    { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: '/img/62efdb6e-017c-412e-a412-67bcba628673.jpg', badges: ['Складные'] },
+    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/b09373e0-024a-46f8-820f-b6e4b2b8711b.jpg', badges: ['50м'] },
+    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/79882584-ad60-4dfc-8779-b9c6c447536b.jpg', badges: ['600мм'] },
+    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/d50cfa22-ef13-49fc-aa90-8a8f767ca973.jpg', badges: ['Разные'] },
+    { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: '/img/4a0b5716-db56-49f0-9922-a64c4e9d59dc.jpg', badges: ['F-обр'] }
   ];
 
 
