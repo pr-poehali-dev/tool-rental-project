@@ -46,9 +46,9 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 65, hourlyPrice: 30, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
     { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: '/img/scissors.jpg', badges: ['42мм'] },
     { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: '/img/welder.jpg', badges: ['1000Вт'] },
-    { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: '/img/stands.jpg', badges: ['Регул', 'Складные'] },
-    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/extension.jpg', badges: ['50м', '100м'] },
-    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/level.jpg', badges: ['1м', '2м'] },
+    { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: '/img/stands.jpg', badges: ['Складные'] },
+    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/extension.jpg', badges: ['50м'] },
+    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/level.jpg', badges: ['600мм'] },
     { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/straps.jpg', badges: ['Комплект', 'Разные'] },
     { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: '/img/clamps.jpg', badges: ['G-обр', 'F-обр'] }
   ];
