@@ -28,7 +28,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'electronic-level', name: 'Электронный уровень', price: 180, hourlyPrice: 70, image: '/img/8f06c9a1-9869-42c7-9362-bfd0da351f06.jpg', badges: ['Лазер', 'Цифровой'] },
     { id: 'sander', name: 'Шлифовальная машинка', price: 280, hourlyPrice: 110, image: '/img/c3cba4e6-8d40-4b89-b871-f7b577415f1b.jpg', badges: ['Орбитальная'] },
     { id: 'planer', name: 'Электрорубанок', price: 250, hourlyPrice: 100, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['82мм', '110мм'] },
-    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/gaikover.jpg', badges: ['Пневмо', '1/2"'] }
+    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/gaikover.jpg', badges: ['1/2"'] }
   ];
 
   const cleaningData = [
