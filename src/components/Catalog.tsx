@@ -21,7 +21,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'screwdriver', name: 'Шуруповерт', price: 140, hourlyPrice: 60, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['18V'] },
     { id: 'jigsaw', name: 'Лобзик', price: 220, hourlyPrice: 90, image: '/img/8d13799b-c272-4b6e-8431-343f50155b8e.jpg', badges: ['Аккум'] },
     { id: 'circular-saw', name: 'Циркулярная пила', price: 250, hourlyPrice: 100, image: '/img/e67dac9f-7d1f-456c-b6f9-a4910f280dce.jpg', badges: ['190мм'] },
-    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 200, hourlyPrice: 80, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Электро', 'Аккум'] },
+    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 200, hourlyPrice: 80, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Аккум'] },
     { id: 'perforator', name: 'Перфоратор', price: 600, hourlyPrice: 250, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['SDS+', 'SDS-max'] },
     { id: 'heat-gun', name: 'Строительный фен', price: 100, hourlyPrice: 40, image: '/img/c595f387-16fe-4eb9-974a-401c46098843.jpg', badges: ['2000Вт'] },
     { id: 'renovator', name: 'Реноватор', price: 320, hourlyPrice: 130, image: '/img/15b1e73f-02b7-4cbd-95d4-eddc56dd38bb.jpg', badges: ['Насадки'] },
