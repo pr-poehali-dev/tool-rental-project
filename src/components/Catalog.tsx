@@ -49,8 +49,8 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: '/img/stands.jpg', badges: ['Складные'] },
     { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/extension.jpg', badges: ['50м'] },
     { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/level.jpg', badges: ['600мм'] },
-    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/straps.jpg', badges: ['Комплект', 'Разные'] },
-    { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: '/img/clamps.jpg', badges: ['G-обр', 'F-обр'] }
+    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/straps.jpg', badges: ['Разные'] },
+    { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: '/img/clamps.jpg', badges: ['F-обр'] }
   ];
 
 
