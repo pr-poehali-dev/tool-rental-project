@@ -16,32 +16,40 @@ interface CatalogProps {
 
 export default function Catalog({ addToCart }: CatalogProps) {
   const powerToolsData = [
-    { id: 'grinder', name: 'Болгарка', price: 400, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['125мм', '230мм'] },
-    { id: 'screwdriver', name: 'Шуруповерт', price: 300, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['18V', '12V'] },
-    { id: 'jigsaw', name: 'Лобзик', price: 350, image: '/img/8d13799b-c272-4b6e-8431-343f50155b8e.jpg', badges: ['Электро', 'Аккум'] },
-    { id: 'circular-saw', name: 'Циркулярная пила', price: 450, image: '/img/e67dac9f-7d1f-456c-b6f9-a4910f280dce.jpg', badges: ['160мм', '190мм'] },
-    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 400, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Электро', 'Аккум'] },
+    { id: 'grinder', name: 'Болгарка', price: 270, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['125мм', '230мм'] },
+    { id: 'screwdriver', name: 'Шуруповерт', price: 140, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['18V', '12V'] },
+    { id: 'jigsaw', name: 'Лобзик', price: 220, image: '/img/8d13799b-c272-4b6e-8431-343f50155b8e.jpg', badges: ['Электро', 'Аккум'] },
+    { id: 'circular-saw', name: 'Циркулярная пила', price: 250, image: '/img/e67dac9f-7d1f-456c-b6f9-a4910f280dce.jpg', badges: ['160мм', '190мм'] },
+    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 200, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Электро', 'Аккум'] },
     { id: 'perforator', name: 'Перфоратор', price: 600, image: '/img/8e692f85-62a5-44a8-b9f1-04eeb0249b8a.jpg', badges: ['SDS+', 'SDS-max'] },
-    { id: 'heat-gun', name: 'Строительный фен', price: 250, image: '/img/c595f387-16fe-4eb9-974a-401c46098843.jpg', badges: ['1800Вт', '2000Вт'] },
+    { id: 'heat-gun', name: 'Строительный фен', price: 100, image: '/img/c595f387-16fe-4eb9-974a-401c46098843.jpg', badges: ['1800Вт', '2000Вт'] },
     { id: 'renovator', name: 'Реноватор', price: 320, image: '/img/15b1e73f-02b7-4cbd-95d4-eddc56dd38bb.jpg', badges: ['Многофункц', 'Насадки'] },
     { id: 'electronic-level', name: 'Электронный уровень', price: 180, image: '/img/8f06c9a1-9869-42c7-9362-bfd0da351f06.jpg', badges: ['Лазер', 'Цифровой'] },
     { id: 'sander', name: 'Шлифовальная машинка', price: 280, image: '/img/c3cba4e6-8d40-4b89-b871-f7b577415f1b.jpg', badges: ['Орбитальная', 'Виброшлиф'] },
-    { id: 'planer', name: 'Электрорубанок', price: 250, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['82мм', '110мм'] }
+    { id: 'planer', name: 'Электрорубанок', price: 250, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['82мм', '110мм'] },
+    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, image: '/img/gaikover.jpg', badges: ['Пневмо', '1/2"'] }
   ];
 
   const cleaningData = [
-    { id: 'steam-cleaner', name: 'Пароочиститель', price: 400, image: '/img/9a27bb5b-52a8-4818-b3a3-51486a8a4105.jpg', badges: ['1500Вт', '2000Вт'] },
-    { id: 'window-cleaner', name: 'Мойщик окон', price: 200, image: '/img/31413823-7d75-4329-9859-505e84fc5d64.jpg', badges: ['Проф', 'Эконом'] },
-    { id: 'vacuum-cleaner', name: 'Строительный пылесос', price: 300, image: '/img/4fcd20e2-5b36-49fd-b63b-30264773ccab.jpg', badges: ['1200Вт', '1400Вт'] },
-    { id: 'paint-sprayer', name: 'Краскопульт', price: 350, image: '/img/2989e866-3828-42a2-bc2d-d4c407f099e4.jpg', badges: ['Электр', 'Пневмо'] }
+    { id: 'steam-cleaner', name: 'Пароочиститель', price: 100, image: '/img/9a27bb5b-52a8-4818-b3a3-51486a8a4105.jpg', badges: ['1500Вт', '2000Вт'] },
+    { id: 'window-cleaner', name: 'Мойщик окон', price: 270, image: '/img/31413823-7d75-4329-9859-505e84fc5d64.jpg', badges: ['Проф', 'Эконом'] },
+    { id: 'vacuum-cleaner', name: 'Строительный пылесос', price: 240, image: '/img/4fcd20e2-5b36-49fd-b63b-30264773ccab.jpg', badges: ['1200Вт', '1400Вт'] },
+    { id: 'paint-sprayer', name: 'Краскопульт', price: 230, image: '/img/2989e866-3828-42a2-bc2d-d4c407f099e4.jpg', badges: ['Электр', 'Пневмо'] }
   ];
 
   const equipmentData = [
     { id: 'generator', name: 'Электрогенератор', price: 1200, image: '/img/46fc1203-245a-4cb8-8105-c1f78c936cc0.jpg', badges: ['3кВт', '5кВт'] },
-    { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 200, image: '/img/aa1d29f1-0130-4eb1-9974-6fd1be6b89ef.jpg', badges: ['2т', '3т'] },
-    { id: 'work-light', name: 'Прожектор строительный', price: 180, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт', '100Вт'] },
-    { id: 'concrete-mixer', name: 'Бетономешалка', price: 800, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['150л', '200л'] },
-    { id: 'battery-charger', name: 'Зарядное устройство', price: 150, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V', '24V'] }
+    { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 240, image: '/img/aa1d29f1-0130-4eb1-9974-6fd1be6b89ef.jpg', badges: ['2т', '3т'] },
+    { id: 'work-light', name: 'Прожектор строительный', price: 60, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт', '100Вт'] },
+    { id: 'concrete-mixer', name: 'Бетономешалка', price: 815, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['150л', '200л'] },
+    { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 65, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V', '24V'] },
+    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, image: '/img/scissors.jpg', badges: ['20-40мм', '16-63мм'] },
+    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, image: '/img/welder.jpg', badges: ['800Вт', '1200Вт'] },
+    { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, image: '/img/stands.jpg', badges: ['Регул', 'Складные'] },
+    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, image: '/img/extension.jpg', badges: ['50м', '100м'] },
+    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, image: '/img/level.jpg', badges: ['1м', '2м'] },
+    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, image: '/img/straps.jpg', badges: ['Комплект', 'Разные'] },
+    { id: 'clamps', name: 'Струбцины', price: 50, image: '/img/clamps.jpg', badges: ['G-обр', 'F-обр'] }
   ];
 
 
