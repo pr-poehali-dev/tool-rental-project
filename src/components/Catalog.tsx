@@ -11,6 +11,7 @@ interface CartItem {
   hourlyPrice: number;
   image: string;
   rentalType: 'hourly' | 'daily';
+  quantity: number;
 }
 
 interface CatalogProps {
@@ -19,15 +20,7 @@ interface CatalogProps {
 
 export default function Catalog({ addToCart }: CatalogProps) {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
-  const [rentalModal, setRentalModal] = useState<{ 
-    item: any; 
-    isOpen: boolean; 
-    buttonRef: HTMLButtonElement | null;
-  }>({ 
-    item: null, 
-    isOpen: false, 
-    buttonRef: null 
-  });
+
 
   const openImageModal = (src: string, alt: string) => {
     setSelectedImage({ src, alt });
@@ -37,28 +30,21 @@ export default function Catalog({ addToCart }: CatalogProps) {
     setSelectedImage(null);
   };
 
-  const openRentalModal = (item: any, event: React.MouseEvent) => {
-    const button = event.currentTarget as HTMLButtonElement;
-    setRentalModal({ item, isOpen: true, buttonRef: button });
+  const handleAddToCart = (item: any) => {
+    addToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      hourlyPrice: item.hourlyPrice,
+      image: item.image,
+      rentalType: 'daily', // по умолчанию добавляем на сутки
+      quantity: 1
+    });
   };
 
-  const closeRentalModal = () => {
-    setRentalModal({ item: null, isOpen: false, buttonRef: null });
-  };
 
-  const handleAddToCart = (rentalType: 'hourly' | 'daily') => {
-    if (rentalModal.item) {
-      addToCart({
-        id: rentalModal.item.id,
-        name: rentalModal.item.name,
-        price: rentalModal.item.price,
-        hourlyPrice: rentalModal.item.hourlyPrice,
-        image: rentalModal.item.image,
-        rentalType
-      });
-      closeRentalModal();
-    }
-  };
+
+
   const powerToolsData = [
     { id: 'grinder', name: 'Болгарка', price: 270, hourlyPrice: 110, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['125мм'] },
     { id: 'screwdriver', name: 'Шуруповерт', price: 140, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/dd2430c0-4dd0-4080-958b-d377e7b10714.jpg', badges: ['18V'] },
@@ -138,7 +124,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={(e) => openRentalModal(item, e)}
+                    onClick={() => handleAddToCart(item)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -181,7 +167,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={(e) => openRentalModal(item, e)}
+                    onClick={() => handleAddToCart(item)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -224,7 +210,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={(e) => openRentalModal(item, e)}
+                    onClick={() => handleAddToCart(item)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -270,70 +256,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
         </div>
       )}
 
-      {/* Modal for rental type selection */}
-      {rentalModal.isOpen && rentalModal.item && rentalModal.buttonRef && (() => {
-        const buttonRect = rentalModal.buttonRef.getBoundingClientRect();
-        const modalWidth = 256;
-        const left = Math.max(16, Math.min(buttonRect.left + buttonRect.width / 2 - modalWidth / 2, window.innerWidth - modalWidth - 16));
-        const top = buttonRect.top + window.scrollY - 10;
-        
-        return (
-          <>
-            <div className="fixed inset-0 bg-black bg-opacity-30 z-[9998]" onClick={closeRentalModal} />
-            <div 
-              className="fixed z-[9999] bg-white rounded-lg shadow-xl p-4 w-64 border"
-              style={{
-                left: `${left}px`,
-                top: `${top}px`,
-                transform: 'translateY(-100%)'
-              }}
-            >
-              <div className="flex justify-between items-center mb-3">
-                <h3 className="text-sm font-semibold">Выберите тип аренды</h3>
-                <button onClick={closeRentalModal} className="hover:bg-gray-100 p-1 rounded">
-                  <Icon name="X" size={16} />
-                </button>
-              </div>
-              
-              <div className="mb-3">
-                <h4 className="font-medium text-sm text-gray-800">{rentalModal.item.name}</h4>
-              </div>
 
-              <div className="space-y-2">
-                <Button
-                  className="w-full text-left justify-start h-auto py-3"
-                  variant="outline"
-                  onClick={() => handleAddToCart('daily')}
-                >
-                  <div className="text-left">
-                    <div className="font-medium text-sm">На сутки</div>
-                    <div className="text-xs text-gray-500">{rentalModal.item.price}₽/сутки</div>
-                  </div>
-                </Button>
-                
-                <Button
-                  className="w-full text-left justify-start h-auto py-3"
-                  variant="outline"
-                  onClick={() => handleAddToCart('hourly')}
-                >
-                  <div className="text-left">
-                    <div className="font-medium text-sm">Почасовая</div>
-                    <div className="text-xs text-gray-500">{rentalModal.item.hourlyPrice}₽/час</div>
-                  </div>
-                </Button>
-              </div>
-              
-              {/* Стрелка вниз к кнопке */}
-              <div 
-                className="absolute top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"
-                style={{
-                  left: `${buttonRect.left + buttonRect.width / 2 - left - 8}px`
-                }}
-              />
-            </div>
-          </>
-        );
-      })()}
     </section>
   );
 }

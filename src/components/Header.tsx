@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 import Icon from "@/components/ui/icon";
 
 interface CartItem {
@@ -41,11 +43,20 @@ export default function Header({
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const updateRentalType = (id: string, rentalType: 'hourly' | 'daily') => {
+    setCartItems(cartItems.map(item => 
+      item.id === id ? { ...item, rentalType } : item
+    ));
+  };
+
   const handleOrderSubmit = () => {
     const orderText = `*Заявка на аренду инструментов ToolNord*\n\nТовары:\n${cartItems.map(item => {
       const itemPrice = item.rentalType === 'hourly' ? item.hourlyPrice : item.price;
-      const priceUnit = item.rentalType === 'hourly' ? 'час' : 'сутки';
-      return `• ${item.name} - ${item.quantity} ${priceUnit} (${itemPrice}₽/${priceUnit})`;
+      const timeUnit = item.rentalType === 'hourly' ? 'час' : 'день';
+      const timeUnits = item.rentalType === 'hourly' ? 'часов' : 'дней';
+      const unitWord = item.quantity === 1 ? timeUnit : timeUnits;
+      const totalPrice = itemPrice * item.quantity;
+      return `• ${item.name} - ${item.quantity} ${unitWord} (${itemPrice}₽/${timeUnit}) = ${totalPrice}₽`;
     }).join('\n')}\n\n*Итого: ${getTotalPrice()}₽*\n\nПрошу связаться для оформления заказа.`;
     
     const encodedText = encodeURIComponent(orderText);
@@ -97,32 +108,15 @@ export default function Header({
                     <>
                       <div className="space-y-4 max-h-96 overflow-y-auto">
                         {cartItems.map(item => (
-                          <div key={item.id} className="flex items-center space-x-3 p-3 border rounded-lg">
-                            <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />
-                            <div className="flex-1">
-                              <h4 className="font-medium text-sm">{item.name}</h4>
-                              <p className="text-sm text-gray-500">
-                                {item.rentalType === 'hourly' ? `${item.hourlyPrice}₽/час` : `${item.price}₽/сутки`}
-                              </p>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="w-8 h-8 p-0"
-                              >
-                                -
-                              </Button>
-                              <span className="w-8 text-center">{item.quantity}</span>
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="w-8 h-8 p-0"
-                              >
-                                +
-                              </Button>
+                          <div key={`${item.id}-${item.rentalType}`} className="p-4 border rounded-lg space-y-3">
+                            <div className="flex items-start space-x-3">
+                              <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />
+                              <div className="flex-1">
+                                <h4 className="font-medium text-sm">{item.name}</h4>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  Цена: {item.price}₽/сутки • {item.hourlyPrice}₽/час
+                                </p>
+                              </div>
                               <Button
                                 variant="ghost"
                                 size="sm"
@@ -131,6 +125,61 @@ export default function Header({
                               >
                                 <Icon name="Trash2" size={14} />
                               </Button>
+                            </div>
+                            
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="space-y-1">
+                                <label className="text-xs font-medium text-gray-600">Тип аренды</label>
+                                <Select value={item.rentalType} onValueChange={(value: 'hourly' | 'daily') => updateRentalType(item.id, value)}>
+                                  <SelectTrigger className="h-8">
+                                    <SelectValue />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="daily">На сутки</SelectItem>
+                                    <SelectItem value="hourly">Почасовая</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              
+                              <div className="space-y-1">
+                                <label className="text-xs font-medium text-gray-600">
+                                  Количество {item.rentalType === 'hourly' ? 'часов' : 'дней'}
+                                </label>
+                                <div className="flex items-center space-x-1">
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                    className="w-6 h-8 p-0"
+                                  >
+                                    -
+                                  </Button>
+                                  <Input 
+                                    type="number" 
+                                    value={item.quantity}
+                                    onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
+                                    className="h-8 w-12 text-center p-0"
+                                    min="1"
+                                  />
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                    className="w-6 h-8 p-0"
+                                  >
+                                    +
+                                  </Button>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="flex justify-between items-center pt-2 border-t">
+                              <span className="text-xs text-gray-500">
+                                {item.quantity} {item.rentalType === 'hourly' ? (item.quantity === 1 ? 'час' : 'часов') : (item.quantity === 1 ? 'день' : 'дней')}
+                              </span>
+                              <span className="font-medium">
+                                {(item.rentalType === 'hourly' ? item.hourlyPrice : item.price) * item.quantity}₽
+                              </span>
                             </div>
                           </div>
                         ))}
