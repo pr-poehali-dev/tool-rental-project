@@ -50,7 +50,8 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/b09373e0-024a-46f8-820f-b6e4b2b8711b.jpg', badges: ['50м'] },
     { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/79882584-ad60-4dfc-8779-b9c6c447536b.jpg', badges: ['600мм'] },
     { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/d50cfa22-ef13-49fc-aa90-8a8f767ca973.jpg', badges: ['Разные'] },
-    { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: 'https://cdn.poehali.dev/files/279fabff-2482-455c-ace9-16b4cbd97e92.jpg', badges: ['F-обр'] }
+    { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: 'https://cdn.poehali.dev/files/279fabff-2482-455c-ace9-16b4cbd97e92.jpg', badges: ['F-обр'] },
+    { id: 'rivet-gun', name: 'Клепальник', price: 80, hourlyPrice: 35, image: 'https://cdn.poehali.dev/files/d94c2f75-ee9f-4118-b623-4ad384dc6b7a.jpg', badges: ['Ручной'] }
   ];
 
 
