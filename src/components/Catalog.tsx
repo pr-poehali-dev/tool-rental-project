@@ -19,7 +19,7 @@ interface CatalogProps {
 
 export default function Catalog({ addToCart }: CatalogProps) {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
-  const [rentalModal, setRentalModal] = useState<{ item: any; isOpen: boolean }>({ item: null, isOpen: false });
+  const [rentalModal, setRentalModal] = useState<{ item: any; isOpen: boolean; position: { x: number; y: number } | null }>({ item: null, isOpen: false, position: null });
 
   const openImageModal = (src: string, alt: string) => {
     setSelectedImage({ src, alt });
@@ -29,12 +29,17 @@ export default function Catalog({ addToCart }: CatalogProps) {
     setSelectedImage(null);
   };
 
-  const openRentalModal = (item: any) => {
-    setRentalModal({ item, isOpen: true });
+  const openRentalModal = (item: any, event: React.MouseEvent) => {
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const position = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + window.scrollY
+    };
+    setRentalModal({ item, isOpen: true, position });
   };
 
   const closeRentalModal = () => {
-    setRentalModal({ item: null, isOpen: false });
+    setRentalModal({ item: null, isOpen: false, position: null });
   };
 
   const handleAddToCart = (rentalType: 'hourly' | 'daily') => {
@@ -129,7 +134,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => openRentalModal(item)}
+                    onClick={(e) => openRentalModal(item, e)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -172,7 +177,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => openRentalModal(item)}
+                    onClick={(e) => openRentalModal(item, e)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -215,7 +220,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => openRentalModal(item)}
+                    onClick={(e) => openRentalModal(item, e)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -262,52 +267,57 @@ export default function Catalog({ addToCart }: CatalogProps) {
       )}
 
       {/* Modal for rental type selection */}
-      {rentalModal.isOpen && rentalModal.item && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4"
-             onClick={closeRentalModal}>
-          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4"
-               onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">Выберите тип аренды</h3>
+      {rentalModal.isOpen && rentalModal.item && rentalModal.position && (
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-30 z-[9998]"
+               onClick={closeRentalModal} />
+          <div 
+            className="fixed z-[9999] bg-white rounded-lg shadow-xl p-4 max-w-xs w-64"
+            style={{
+              left: `${Math.max(16, Math.min(rentalModal.position.x - 128, window.innerWidth - 272))}px`,
+              top: `${rentalModal.position.y - 20}px`,
+              transform: 'translateY(-100%)'
+            }}
+          >
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-sm font-semibold">Выберите тип аренды</h3>
               <button onClick={closeRentalModal}>
-                <Icon name="X" size={20} />
+                <Icon name="X" size={16} />
               </button>
             </div>
             
-            <div className="mb-4">
-              <h4 className="font-medium">{rentalModal.item.name}</h4>
-              <img 
-                src={rentalModal.item.image} 
-                alt={rentalModal.item.name}
-                className="w-20 h-20 object-cover rounded mt-2"
-              />
+            <div className="mb-3">
+              <h4 className="font-medium text-sm">{rentalModal.item.name}</h4>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               <Button
-                className="w-full text-left justify-start"
+                className="w-full text-left justify-start h-auto py-2"
                 variant="outline"
                 onClick={() => handleAddToCart('daily')}
               >
-                <div>
-                  <div className="font-medium">На сутки</div>
-                  <div className="text-sm text-gray-500">{rentalModal.item.price}₽/сутки</div>
+                <div className="text-left">
+                  <div className="font-medium text-sm">На сутки</div>
+                  <div className="text-xs text-gray-500">{rentalModal.item.price}₽/сутки</div>
                 </div>
               </Button>
               
               <Button
-                className="w-full text-left justify-start"
+                className="w-full text-left justify-start h-auto py-2"
                 variant="outline"
                 onClick={() => handleAddToCart('hourly')}
               >
-                <div>
-                  <div className="font-medium">Почасовая</div>
-                  <div className="text-sm text-gray-500">{rentalModal.item.hourlyPrice}₽/час</div>
+                <div className="text-left">
+                  <div className="font-medium text-sm">Почасовая</div>
+                  <div className="text-xs text-gray-500">{rentalModal.item.hourlyPrice}₽/час</div>
                 </div>
               </Button>
             </div>
+            
+            {/* Arrow pointing down to the item */}
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
           </div>
-        </div>
+        </>
       )}
     </section>
   );
