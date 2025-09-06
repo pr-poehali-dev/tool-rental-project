@@ -28,7 +28,7 @@ export default function Hero() {
             variant="outline" 
             size="lg" 
             className="border-white text-white hover:bg-white hover:text-primary bg-white/10 backdrop-blur-sm"
-            onClick={() => window.open('tel:+79535653311', '_self')}
+            onClick={() => window.open('tel:+79508924419', '_self')}
           >
             <Icon name="Calculator" size={20} className="mr-2" />
             Рассчитать стоимость
