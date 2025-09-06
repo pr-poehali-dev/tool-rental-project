@@ -28,7 +28,8 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
     { id: 'sander', name: 'Шлифовальная машинка', price: 280, hourlyPrice: 110, image: '/img/c3cba4e6-8d40-4b89-b871-f7b577415f1b.jpg', badges: ['Орбитальная'] },
     { id: 'planer', name: 'Электрорубанок', price: 250, hourlyPrice: 100, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['110мм'] },
-    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] }
+    { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] },
+    { id: 'miter-saw', name: 'Торцовочная пила', price: 380, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/91ce55a9-9daa-4954-b87d-609f495af26f.jpg', badges: ['210мм'] }
   ];
 
   const cleaningData = [
