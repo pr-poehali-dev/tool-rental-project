@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
+import RentalPopover from "./RentalPopover";
 
 interface CartItem {
   id: string;
@@ -19,7 +20,15 @@ interface CatalogProps {
 
 export default function Catalog({ addToCart }: CatalogProps) {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
-  const [rentalModal, setRentalModal] = useState<{ item: any; isOpen: boolean; position: { x: number; y: number } | null }>({ item: null, isOpen: false, position: null });
+  const [rentalModal, setRentalModal] = useState<{ 
+    item: any; 
+    isOpen: boolean; 
+    buttonRef: HTMLButtonElement | null;
+  }>({ 
+    item: null, 
+    isOpen: false, 
+    buttonRef: null 
+  });
 
   const openImageModal = (src: string, alt: string) => {
     setSelectedImage({ src, alt });
@@ -30,16 +39,12 @@ export default function Catalog({ addToCart }: CatalogProps) {
   };
 
   const openRentalModal = (item: any, event: React.MouseEvent) => {
-    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    const position = {
-      x: rect.left + rect.width / 2,
-      y: rect.top + window.scrollY
-    };
-    setRentalModal({ item, isOpen: true, position });
+    const button = event.currentTarget as HTMLButtonElement;
+    setRentalModal({ item, isOpen: true, buttonRef: button });
   };
 
   const closeRentalModal = () => {
-    setRentalModal({ item: null, isOpen: false, position: null });
+    setRentalModal({ item: null, isOpen: false, buttonRef: null });
   };
 
   const handleAddToCart = (rentalType: 'hourly' | 'daily') => {
@@ -267,56 +272,16 @@ export default function Catalog({ addToCart }: CatalogProps) {
       )}
 
       {/* Modal for rental type selection */}
-      {rentalModal.isOpen && rentalModal.item && rentalModal.position && (
+      {rentalModal.isOpen && rentalModal.item && rentalModal.buttonRef && (
         <>
           <div className="fixed inset-0 bg-black bg-opacity-30 z-[9998]"
                onClick={closeRentalModal} />
-          <div 
-            className="fixed z-[9999] bg-white rounded-lg shadow-xl p-4 max-w-xs w-64"
-            style={{
-              left: `${Math.max(16, Math.min(rentalModal.position.x - 128, window.innerWidth - 272))}px`,
-              top: `${rentalModal.position.y - 20}px`,
-              transform: 'translateY(-100%)'
-            }}
-          >
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="text-sm font-semibold">Выберите тип аренды</h3>
-              <button onClick={closeRentalModal}>
-                <Icon name="X" size={16} />
-              </button>
-            </div>
-            
-            <div className="mb-3">
-              <h4 className="font-medium text-sm">{rentalModal.item.name}</h4>
-            </div>
-
-            <div className="space-y-2">
-              <Button
-                className="w-full text-left justify-start h-auto py-2"
-                variant="outline"
-                onClick={() => handleAddToCart('daily')}
-              >
-                <div className="text-left">
-                  <div className="font-medium text-sm">На сутки</div>
-                  <div className="text-xs text-gray-500">{rentalModal.item.price}₽/сутки</div>
-                </div>
-              </Button>
-              
-              <Button
-                className="w-full text-left justify-start h-auto py-2"
-                variant="outline"
-                onClick={() => handleAddToCart('hourly')}
-              >
-                <div className="text-left">
-                  <div className="font-medium text-sm">Почасовая</div>
-                  <div className="text-xs text-gray-500">{rentalModal.item.hourlyPrice}₽/час</div>
-                </div>
-              </Button>
-            </div>
-            
-            {/* Arrow pointing down to the item */}
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
-          </div>
+          <RentalPopover 
+            item={rentalModal.item}
+            buttonRef={rentalModal.buttonRef}
+            onAddToCart={handleAddToCart}
+            onClose={closeRentalModal}
+          />
         </>
       )}
     </section>
