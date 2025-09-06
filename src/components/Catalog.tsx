@@ -242,7 +242,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
       {/* Modal for image zoom */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[9999] p-4"
              onClick={closeImageModal}>
           <div className="relative max-w-4xl max-h-full">
             <button 
@@ -263,7 +263,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
       {/* Modal for rental type selection */}
       {rentalModal.isOpen && rentalModal.item && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4"
              onClick={closeRentalModal}>
           <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4"
                onClick={(e) => e.stopPropagation()}>
