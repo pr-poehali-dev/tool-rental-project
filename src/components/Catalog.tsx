@@ -18,7 +18,7 @@ interface CatalogProps {
 export default function Catalog({ addToCart }: CatalogProps) {
   const powerToolsData = [
     { id: 'grinder', name: 'Болгарка', price: 270, hourlyPrice: 110, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['125мм'] },
-    { id: 'screwdriver', name: 'Шуруповерт', price: 140, hourlyPrice: 60, image: '/img/59600e85-c1d2-41bf-8d48-c794aec24f92.jpg', badges: ['18V'] },
+    { id: 'screwdriver', name: 'Шуруповерт', price: 140, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/dd2430c0-4dd0-4080-958b-d377e7b10714.jpg', badges: ['18V'] },
     { id: 'jigsaw', name: 'Лобзик', price: 220, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/377e8f2d-35c6-43ff-85bd-7ae4fe7ee688.jpg', badges: ['Аккум'] },
     { id: 'circular-saw', name: 'Циркулярная пила', price: 250, hourlyPrice: 100, image: '/img/e67dac9f-7d1f-456c-b6f9-a4910f280dce.jpg', badges: ['190мм'] },
     { id: 'reciprocating-saw', name: 'Сабельная пила', price: 200, hourlyPrice: 80, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Аккум'] },
