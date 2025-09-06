@@ -12,8 +12,10 @@ interface CartItem {
   id: string;
   name: string;
   price: number;
+  hourlyPrice: number;
   image: string;
   quantity: number;
+  rentalType: 'hourly' | 'daily';
 }
 
 export default function Index() {
@@ -22,10 +24,10 @@ export default function Index() {
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setCartItems(prev => {
-      const existing = prev.find(cartItem => cartItem.id === item.id);
+      const existing = prev.find(cartItem => cartItem.id === item.id && cartItem.rentalType === item.rentalType);
       if (existing) {
         return prev.map(cartItem => 
-          cartItem.id === item.id 
+          cartItem.id === item.id && cartItem.rentalType === item.rentalType
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );

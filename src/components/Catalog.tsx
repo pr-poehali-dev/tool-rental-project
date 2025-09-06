@@ -10,6 +10,7 @@ interface CartItem {
   price: number;
   hourlyPrice: number;
   image: string;
+  rentalType: 'hourly' | 'daily';
 }
 
 interface CatalogProps {
@@ -18,6 +19,7 @@ interface CatalogProps {
 
 export default function Catalog({ addToCart }: CatalogProps) {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+  const [rentalModal, setRentalModal] = useState<{ item: any; isOpen: boolean }>({ item: null, isOpen: false });
 
   const openImageModal = (src: string, alt: string) => {
     setSelectedImage({ src, alt });
@@ -25,6 +27,28 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
   const closeImageModal = () => {
     setSelectedImage(null);
+  };
+
+  const openRentalModal = (item: any) => {
+    setRentalModal({ item, isOpen: true });
+  };
+
+  const closeRentalModal = () => {
+    setRentalModal({ item: null, isOpen: false });
+  };
+
+  const handleAddToCart = (rentalType: 'hourly' | 'daily') => {
+    if (rentalModal.item) {
+      addToCart({
+        id: rentalModal.item.id,
+        name: rentalModal.item.name,
+        price: rentalModal.item.price,
+        hourlyPrice: rentalModal.item.hourlyPrice,
+        image: rentalModal.item.image,
+        rentalType
+      });
+      closeRentalModal();
+    }
   };
   const powerToolsData = [
     { id: 'grinder', name: 'Болгарка', price: 270, hourlyPrice: 110, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['125мм'] },
@@ -105,13 +129,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => addToCart({
-                      id: item.id,
-                      name: item.name,
-                      price: item.price,
-                      hourlyPrice: item.hourlyPrice,
-                      image: item.image
-                    })}
+                    onClick={() => openRentalModal(item)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -154,13 +172,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => addToCart({
-                      id: item.id,
-                      name: item.name,
-                      price: item.price,
-                      hourlyPrice: item.hourlyPrice,
-                      image: item.image
-                    })}
+                    onClick={() => openRentalModal(item)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -203,13 +215,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => addToCart({
-                      id: item.id,
-                      name: item.name,
-                      price: item.price,
-                      hourlyPrice: item.hourlyPrice,
-                      image: item.image
-                    })}
+                    onClick={() => openRentalModal(item)}
                   >
                     <Icon name="Plus" size={16} className="mr-2" />
                     В корзину
@@ -251,6 +257,55 @@ export default function Catalog({ addToCart }: CatalogProps) {
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
+          </div>
+        </div>
+      )}
+
+      {/* Modal for rental type selection */}
+      {rentalModal.isOpen && rentalModal.item && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+             onClick={closeRentalModal}>
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4"
+               onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Выберите тип аренды</h3>
+              <button onClick={closeRentalModal}>
+                <Icon name="X" size={20} />
+              </button>
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="font-medium">{rentalModal.item.name}</h4>
+              <img 
+                src={rentalModal.item.image} 
+                alt={rentalModal.item.name}
+                className="w-20 h-20 object-cover rounded mt-2"
+              />
+            </div>
+
+            <div className="space-y-3">
+              <Button
+                className="w-full text-left justify-start"
+                variant="outline"
+                onClick={() => handleAddToCart('daily')}
+              >
+                <div>
+                  <div className="font-medium">На сутки</div>
+                  <div className="text-sm text-gray-500">{rentalModal.item.price}₽/сутки</div>
+                </div>
+              </Button>
+              
+              <Button
+                className="w-full text-left justify-start"
+                variant="outline"
+                onClick={() => handleAddToCart('hourly')}
+              >
+                <div>
+                  <div className="font-medium">Почасовая</div>
+                  <div className="text-sm text-gray-500">{rentalModal.item.hourlyPrice}₽/час</div>
+                </div>
+              </Button>
+            </div>
           </div>
         </div>
       )}

@@ -7,8 +7,10 @@ interface CartItem {
   id: string;
   name: string;
   price: number;
+  hourlyPrice: number;
   image: string;
   quantity: number;
+  rentalType: 'hourly' | 'daily';
 }
 
 interface HeaderProps {
@@ -29,7 +31,10 @@ export default function Header({
   setCartItems 
 }: HeaderProps) {
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cartItems.reduce((total, item) => {
+      const itemPrice = item.rentalType === 'hourly' ? item.hourlyPrice : item.price;
+      return total + (itemPrice * item.quantity);
+    }, 0);
   };
 
   const getTotalItems = () => {
@@ -37,9 +42,11 @@ export default function Header({
   };
 
   const handleOrderSubmit = () => {
-    const orderText = `*Заявка на аренду инструментов ToolNord*\n\nТовары:\n${cartItems.map(item => 
-      `• ${item.name} - ${item.quantity} шт. (${item.price}₽/сутки)`
-    ).join('\n')}\n\n*Итого: ${getTotalPrice()}₽/сутки*\n\nПрошу связаться для оформления заказа.`;
+    const orderText = `*Заявка на аренду инструментов ToolNord*\n\nТовары:\n${cartItems.map(item => {
+      const itemPrice = item.rentalType === 'hourly' ? item.hourlyPrice : item.price;
+      const priceUnit = item.rentalType === 'hourly' ? 'час' : 'сутки';
+      return `• ${item.name} - ${item.quantity} ${priceUnit} (${itemPrice}₽/${priceUnit})`;
+    }).join('\n')}\n\n*Итого: ${getTotalPrice()}₽*\n\nПрошу связаться для оформления заказа.`;
     
     const encodedText = encodeURIComponent(orderText);
     window.open(`https://wa.me/79508924419?text=${encodedText}`, '_blank');
@@ -94,7 +101,9 @@ export default function Header({
                             <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />
                             <div className="flex-1">
                               <h4 className="font-medium text-sm">{item.name}</h4>
-                              <p className="text-sm text-gray-500">{item.price}₽/сутки</p>
+                              <p className="text-sm text-gray-500">
+                                {item.rentalType === 'hourly' ? `${item.hourlyPrice}₽/час` : `${item.price}₽/сутки`}
+                              </p>
                             </div>
                             <div className="flex items-center space-x-2">
                               <Button
@@ -129,7 +138,7 @@ export default function Header({
                       <div className="mt-6 pt-4 border-t">
                         <div className="flex justify-between items-center mb-4">
                           <span className="font-semibold">Итого:</span>
-                          <span className="font-semibold text-lg">{getTotalPrice()}₽/сутки</span>
+                          <span className="font-semibold text-lg">{getTotalPrice()}₽</span>
                         </div>
                         <Button 
                           className="w-full bg-primary hover:bg-primary/90"
