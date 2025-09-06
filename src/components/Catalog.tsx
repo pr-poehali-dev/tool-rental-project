@@ -44,7 +44,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'work-light', name: 'Прожектор строительный', price: 60, hourlyPrice: 25, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт'] },
     { id: 'concrete-mixer', name: 'Бетономешалка', price: 815, hourlyPrice: 330, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['160л'] },
     { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 65, hourlyPrice: 30, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
-    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: '/img/9b0a5ed2-3e34-44a2-a82d-048974e0494c.jpg', badges: ['42мм'] },
+    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: 'https://cdn.poehali.dev/files/0a3b0459-1aae-4baf-a9f3-a797071ca17f.jpg', badges: ['42мм'] },
     { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: '/img/38e415b6-3942-4f6e-9e73-c57f5b24cc1f.jpg', badges: ['1000Вт'] },
     { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: '/img/62efdb6e-017c-412e-a412-67bcba628673.jpg', badges: ['Складные'] },
     { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/b09373e0-024a-46f8-820f-b6e4b2b8711b.jpg', badges: ['50м'] },
