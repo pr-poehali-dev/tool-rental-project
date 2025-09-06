@@ -36,6 +36,15 @@ export default function Header({
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const handleOrderSubmit = () => {
+    const orderText = `*Заявка на аренду инструментов ToolNord*\n\nТовары:\n${cartItems.map(item => 
+      `• ${item.name} - ${item.quantity} шт. (${item.price}₽/сутки)`
+    ).join('\n')}\n\n*Итого: ${getTotalPrice()}₽/сутки*\n\nПрошу связаться для оформления заказа.`;
+    
+    const encodedText = encodeURIComponent(orderText);
+    window.open(`https://wa.me/79508924419?text=${encodedText}`, '_blank');
+  };
+
   return (
     <header className="bg-primary text-white sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -122,7 +131,10 @@ export default function Header({
                           <span className="font-semibold">Итого:</span>
                           <span className="font-semibold text-lg">{getTotalPrice()}₽/сутки</span>
                         </div>
-                        <Button className="w-full bg-primary hover:bg-primary/90">
+                        <Button 
+                          className="w-full bg-primary hover:bg-primary/90"
+                          onClick={handleOrderSubmit}
+                        >
                           <Icon name="CreditCard" size={16} className="mr-2" />
                           Оформить заказ
                         </Button>
