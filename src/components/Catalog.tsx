@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
-import RentalPopover from "./RentalPopover";
 
 interface CartItem {
   id: string;
@@ -272,18 +271,69 @@ export default function Catalog({ addToCart }: CatalogProps) {
       )}
 
       {/* Modal for rental type selection */}
-      {rentalModal.isOpen && rentalModal.item && rentalModal.buttonRef && (
-        <>
-          <div className="fixed inset-0 bg-black bg-opacity-30 z-[9998]"
-               onClick={closeRentalModal} />
-          <RentalPopover 
-            item={rentalModal.item}
-            buttonRef={rentalModal.buttonRef}
-            onAddToCart={handleAddToCart}
-            onClose={closeRentalModal}
-          />
-        </>
-      )}
+      {rentalModal.isOpen && rentalModal.item && rentalModal.buttonRef && (() => {
+        const buttonRect = rentalModal.buttonRef.getBoundingClientRect();
+        const modalWidth = 256;
+        const left = Math.max(16, Math.min(buttonRect.left + buttonRect.width / 2 - modalWidth / 2, window.innerWidth - modalWidth - 16));
+        const top = buttonRect.top + window.scrollY - 10;
+        
+        return (
+          <>
+            <div className="fixed inset-0 bg-black bg-opacity-30 z-[9998]" onClick={closeRentalModal} />
+            <div 
+              className="fixed z-[9999] bg-white rounded-lg shadow-xl p-4 w-64 border"
+              style={{
+                left: `${left}px`,
+                top: `${top}px`,
+                transform: 'translateY(-100%)'
+              }}
+            >
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-sm font-semibold">Выберите тип аренды</h3>
+                <button onClick={closeRentalModal} className="hover:bg-gray-100 p-1 rounded">
+                  <Icon name="X" size={16} />
+                </button>
+              </div>
+              
+              <div className="mb-3">
+                <h4 className="font-medium text-sm text-gray-800">{rentalModal.item.name}</h4>
+              </div>
+
+              <div className="space-y-2">
+                <Button
+                  className="w-full text-left justify-start h-auto py-3"
+                  variant="outline"
+                  onClick={() => handleAddToCart('daily')}
+                >
+                  <div className="text-left">
+                    <div className="font-medium text-sm">На сутки</div>
+                    <div className="text-xs text-gray-500">{rentalModal.item.price}₽/сутки</div>
+                  </div>
+                </Button>
+                
+                <Button
+                  className="w-full text-left justify-start h-auto py-3"
+                  variant="outline"
+                  onClick={() => handleAddToCart('hourly')}
+                >
+                  <div className="text-left">
+                    <div className="font-medium text-sm">Почасовая</div>
+                    <div className="text-xs text-gray-500">{rentalModal.item.hourlyPrice}₽/час</div>
+                  </div>
+                </Button>
+              </div>
+              
+              {/* Стрелка вниз к кнопке */}
+              <div 
+                className="absolute top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"
+                style={{
+                  left: `${buttonRect.left + buttonRect.width / 2 - left - 8}px`
+                }}
+              />
+            </div>
+          </>
+        );
+      })()}
     </section>
   );
 }
