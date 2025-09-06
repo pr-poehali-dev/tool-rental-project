@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 interface CartItem {
   id: string;
@@ -16,6 +17,15 @@ interface CatalogProps {
 }
 
 export default function Catalog({ addToCart }: CatalogProps) {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const openImageModal = (src: string, alt: string) => {
+    setSelectedImage({ src, alt });
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
   const powerToolsData = [
     { id: 'grinder', name: 'Болгарка', price: 270, hourlyPrice: 110, image: '/img/4db31d9d-eba9-482a-9692-25a7544aca68.jpg', badges: ['125мм'] },
     { id: 'screwdriver', name: 'Шуруповерт', price: 140, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/dd2430c0-4dd0-4080-958b-d377e7b10714.jpg', badges: ['18V'] },
@@ -70,12 +80,16 @@ export default function Catalog({ addToCart }: CatalogProps) {
             {powerToolsData.map((item) => (
               <Card key={item.id} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
                 <CardHeader className="pb-3">
-                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center cursor-pointer group relative"
+                       onClick={() => openImageModal(item.image, item.name)}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                     />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center">
+                      <Icon name="ZoomIn" size={24} className="text-white opacity-0 group-hover:opacity-80" />
+                    </div>
                   </div>
                   <CardTitle className="text-lg">{item.name}</CardTitle>
                   <CardDescription>
@@ -115,12 +129,16 @@ export default function Catalog({ addToCart }: CatalogProps) {
             {cleaningData.map((item) => (
               <Card key={item.id} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
                 <CardHeader className="pb-3">
-                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center cursor-pointer group relative"
+                       onClick={() => openImageModal(item.image, item.name)}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                     />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center">
+                      <Icon name="ZoomIn" size={24} className="text-white opacity-0 group-hover:opacity-80" />
+                    </div>
                   </div>
                   <CardTitle className="text-lg">{item.name}</CardTitle>
                   <CardDescription>
@@ -160,12 +178,16 @@ export default function Catalog({ addToCart }: CatalogProps) {
             {equipmentData.map((item) => (
               <Card key={item.id} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-105">
                 <CardHeader className="pb-3">
-                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center cursor-pointer group relative"
+                       onClick={() => openImageModal(item.image, item.name)}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                     />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center">
+                      <Icon name="ZoomIn" size={24} className="text-white opacity-0 group-hover:opacity-80" />
+                    </div>
                   </div>
                   <CardTitle className="text-lg">{item.name}</CardTitle>
                   <CardDescription>
@@ -211,6 +233,27 @@ export default function Catalog({ addToCart }: CatalogProps) {
           </Button>
         </div>
       </div>
+
+      {/* Modal for image zoom */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+             onClick={closeImageModal}>
+          <div className="relative max-w-4xl max-h-full">
+            <button 
+              onClick={closeImageModal}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+            >
+              <Icon name="X" size={32} />
+            </button>
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.alt}
+              className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
