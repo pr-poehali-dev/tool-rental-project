@@ -44,9 +44,13 @@ export default function Header({
   };
 
   const updateRentalType = (id: string, rentalType: 'hourly' | 'daily') => {
-    setCartItems(cartItems.map(item => 
-      item.id === id ? { ...item, rentalType } : item
-    ));
+    setCartItems(cartItems.map(item => {
+      if (item.id === id) {
+        const newQuantity = rentalType === 'hourly' && item.quantity < 2 ? 2 : item.quantity;
+        return { ...item, rentalType, quantity: newQuantity };
+      }
+      return item;
+    }));
   };
 
   const handleOrderSubmit = () => {
@@ -149,17 +153,24 @@ export default function Header({
                                   <Button
                                     variant="outline"
                                     size="sm"
-                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                    onClick={() => {
+                                      const minValue = item.rentalType === 'hourly' ? 2 : 1;
+                                      updateQuantity(item.id, Math.max(minValue, item.quantity - 1));
+                                    }}
                                     className="w-6 h-8 p-0"
+                                    disabled={item.rentalType === 'hourly' && item.quantity <= 2 || item.rentalType === 'daily' && item.quantity <= 1}
                                   >
                                     -
                                   </Button>
                                   <Input 
                                     type="number" 
                                     value={item.quantity}
-                                    onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
+                                    onChange={(e) => {
+                                      const minValue = item.rentalType === 'hourly' ? 2 : 1;
+                                      updateQuantity(item.id, Math.max(minValue, parseInt(e.target.value) || minValue));
+                                    }}
                                     className="h-8 w-12 text-center p-0"
-                                    min="1"
+                                    min={item.rentalType === 'hourly' ? "2" : "1"}
                                   />
                                   <Button
                                     variant="outline"
