@@ -3,7 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 interface CartItem {
   id: string;
@@ -32,6 +34,7 @@ export default function Header({
   removeFromCart, 
   setCartItems 
 }: HeaderProps) {
+  const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => {
       const itemPrice = item.rentalType === 'hourly' ? item.hourlyPrice : item.price;
@@ -65,6 +68,9 @@ export default function Header({
     
     const encodedText = encodeURIComponent(orderText);
     window.open(`https://wa.me/79508924419?text=${encodedText}`, '_blank');
+    setIsConfirmDialogOpen(false);
+    setIsCartOpen(false);
+    setCartItems([]);
   };
 
   return (
@@ -202,7 +208,7 @@ export default function Header({
                         </div>
                         <Button 
                           className="w-full bg-primary hover:bg-primary/90"
-                          onClick={handleOrderSubmit}
+                          onClick={() => setIsConfirmDialogOpen(true)}
                         >
                           <Icon name="CreditCard" size={16} className="mr-2" />
                           Оформить заказ
@@ -220,6 +226,66 @@ export default function Header({
                 </div>
               </SheetContent>
             </Sheet>
+
+            <Dialog open={isConfirmDialogOpen} onOpenChange={setIsConfirmDialogOpen}>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Подтверждение заказа</DialogTitle>
+                  <DialogDescription>
+                    Проверьте свой заказ перед отправкой
+                  </DialogDescription>
+                </DialogHeader>
+                
+                <div className="space-y-4 max-h-60 overflow-y-auto">
+                  {cartItems.map(item => {
+                    const itemPrice = item.rentalType === 'hourly' ? item.hourlyPrice : item.price;
+                    const timeUnit = item.rentalType === 'hourly' ? 'час' : 'день';
+                    const timeUnits = item.rentalType === 'hourly' ? 'часов' : 'дней';
+                    const unitWord = item.quantity === 1 ? timeUnit : timeUnits;
+                    const totalPrice = itemPrice * item.quantity;
+                    
+                    return (
+                      <div key={`${item.id}-${item.rentalType}`} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <img src={item.image} alt={item.name} className="w-10 h-10 object-cover rounded" />
+                        <div className="flex-1">
+                          <h4 className="font-medium text-sm">{item.name}</h4>
+                          <p className="text-xs text-gray-600">
+                            {item.quantity} {unitWord} × {itemPrice}₽/{timeUnit}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-medium">{totalPrice}₽</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                
+                <div className="border-t pt-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="font-semibold">Общая сумма:</span>
+                    <span className="font-semibold text-lg text-primary">{getTotalPrice()}₽</span>
+                  </div>
+                </div>
+                
+                <DialogFooter className="flex-col space-y-2">
+                  <Button 
+                    onClick={handleOrderSubmit} 
+                    className="w-full bg-green-600 hover:bg-green-700"
+                  >
+                    <Icon name="MessageCircle" size={16} className="mr-2" />
+                    Отправить в WhatsApp
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setIsConfirmDialogOpen(false)}
+                    className="w-full"
+                  >
+                    Вернуться к корзине
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
             <Button 
               variant="secondary" 
               size="sm"
