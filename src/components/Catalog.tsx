@@ -71,7 +71,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
   const equipmentData = [
     { id: 'electronic-level', name: 'Электронный уровень', price: 180, hourlyPrice: 75, image: 'https://cdn.poehali.dev/files/4c460c43-4339-4426-9819-881abe040c50.jpg', badges: ['Цифровой'] },
-    { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 240, hourlyPrice: 100, image: '/img/aa1d29f1-0130-4eb1-9974-6fd1be6b89ef.jpg', badges: ['2,5Т'] },
+    { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 240, hourlyPrice: 100, image: 'https://cdn.poehali.dev/files/af9802ac-1722-4864-ac3a-cb0f1ef6a757.jpg', badges: ['2,5Т'] },
     { id: 'work-light', name: 'Прожектор строительный', price: 60, hourlyPrice: 25, image: '/img/c22ac40a-641a-4ace-b343-cf6c059fa27a.jpg', badges: ['50Вт'] },
     { id: 'concrete-mixer', name: 'Бетономешалка', price: 815, hourlyPrice: 330, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['160л'] },
     { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 65, hourlyPrice: 30, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
