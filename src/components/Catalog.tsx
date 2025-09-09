@@ -56,7 +56,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'renovator', name: 'Реноватор', price: 320, hourlyPrice: 130, image: 'https://cdn.poehali.dev/files/cedc8e4e-efe5-45c4-a448-40b5ac107452.jpg', badges: ['Насадки'] },
 
     { id: 'sander', name: 'Шлифовальная машинка', price: 280, hourlyPrice: 110, image: 'https://cdn.poehali.dev/files/ba34abe5-1cfc-4734-90bd-e6cc5eb6b4e4.jpg', badges: ['Орбитальная'] },
-    { id: 'planer', name: 'Электрорубанок', price: 250, hourlyPrice: 100, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['110мм'] },
+    { id: 'planer', name: 'Электрорубанок', price: 250, hourlyPrice: 100, image: 'https://cdn.poehali.dev/files/0ae17cad-fe4f-4cec-952e-4790a1c2f3a9.jpg', badges: ['110мм'] },
     { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] },
     { id: 'miter-saw', name: 'Торцовочная пила', price: 380, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/91ce55a9-9daa-4954-b87d-609f495af26f.jpg', badges: ['210мм'] },
     { id: 'router', name: 'Фрезер', price: 290, hourlyPrice: 120, image: 'https://cdn.poehali.dev/files/41c775d7-842f-48f0-bed8-a388840c73c8.jpg', badges: ['Набор фрез'] }
