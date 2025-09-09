@@ -55,7 +55,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'heat-gun', name: 'Строительный фен', price: 100, hourlyPrice: 40, image: '/img/c595f387-16fe-4eb9-974a-401c46098843.jpg', badges: ['2000Вт'] },
     { id: 'renovator', name: 'Реноватор', price: 320, hourlyPrice: 130, image: 'https://cdn.poehali.dev/files/cedc8e4e-efe5-45c4-a448-40b5ac107452.jpg', badges: ['Насадки'] },
 
-    { id: 'sander', name: 'Шлифовальная машинка', price: 280, hourlyPrice: 110, image: '/img/c3cba4e6-8d40-4b89-b871-f7b577415f1b.jpg', badges: ['Орбитальная'] },
+    { id: 'sander', name: 'Шлифовальная машинка', price: 280, hourlyPrice: 110, image: 'https://cdn.poehali.dev/files/ba34abe5-1cfc-4734-90bd-e6cc5eb6b4e4.jpg', badges: ['Орбитальная'] },
     { id: 'planer', name: 'Электрорубанок', price: 250, hourlyPrice: 100, image: '/img/4cf73f13-8f19-48a6-8144-a2eebf92980c.jpg', badges: ['110мм'] },
     { id: 'impact-wrench', name: 'Гайковёрт', price: 310, hourlyPrice: 130, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] },
     { id: 'miter-saw', name: 'Торцовочная пила', price: 380, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/91ce55a9-9daa-4954-b87d-609f495af26f.jpg', badges: ['210мм'] },
