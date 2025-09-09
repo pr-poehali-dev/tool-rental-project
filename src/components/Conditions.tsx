@@ -63,16 +63,12 @@ export default function Conditions() {
             <CardContent>
               <ul className="space-y-3">
                 <li className="flex justify-between">
-                  <span>Пн-Пт:</span>
-                  <span className="font-semibold">08:00 - 20:00</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Сб-Вс:</span>
-                  <span className="font-semibold">09:00 - 18:00</span>
+                  <span>Ежедневно:</span>
+                  <span className="font-semibold">9:00 - 20:00</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Выдача/Прием:</span>
-                  <span className="font-semibold">Ежедневно</span>
+                  <span className="font-semibold">По графику</span>
                 </li>
               </ul>
             </CardContent>
