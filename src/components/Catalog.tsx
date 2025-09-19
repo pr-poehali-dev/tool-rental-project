@@ -77,7 +77,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'concrete-mixer', name: 'Бетономешалка', price: 815, hourlyPrice: 330, image: '/img/8980d89d-d890-49ee-a50d-6d199bf37431.jpg', badges: ['160л'] },
     { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 65, hourlyPrice: 30, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
     { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: 'https://cdn.poehali.dev/files/0a3b0459-1aae-4baf-a9f3-a797071ca17f.jpg', badges: ['42мм'] },
-    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: 'https://cdn.poehali.dev/files/de474d95-c34d-48aa-aae0-54803392e1c5.jpg', badges: ['1000Вт'] },
+    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: 'https://cdn.poehali.dev/files/a3c09d6a-8319-4b9c-9213-a6636104849f.jpg', badges: ['1000Вт'] },
     { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/8078c877-8e4e-4976-99c1-f1f1dba114c6.jpg', badges: ['Складные'] },
     { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: 'https://cdn.poehali.dev/files/237bb9c3-1a99-4f8e-8aca-30acf39e1d00.jpg', badges: ['50м'] },
     { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/79882584-ad60-4dfc-8779-b9c6c447536b.jpg', badges: ['600мм'] },
