@@ -67,7 +67,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'steam-cleaner', name: 'Пароочиститель', price: 100, hourlyPrice: 40, image: '/img/9a27bb5b-52a8-4818-b3a3-51486a8a4105.jpg', badges: ['1000Вт'] },
     { id: 'window-cleaner', name: 'Мойщик окон', price: 270, hourlyPrice: 110, image: '/img/31413823-7d75-4329-9859-505e84fc5d64.jpg', badges: ['Проф'] },
     { id: 'vacuum-cleaner', name: 'Строительный пылесос', price: 240, hourlyPrice: 100, image: 'https://cdn.poehali.dev/files/8ee26e03-a531-42ef-b166-1c78201c4aa3.jpg', badges: ['1000Вт'] },
-    { id: 'paint-sprayer', name: 'Краскопульт', price: 230, hourlyPrice: 100, image: '/img/2989e866-3828-42a2-bc2d-d4c407f099e4.jpg', badges: ['Электр'] }
+    { id: 'paint-sprayer', name: 'Краскопульт', price: 230, hourlyPrice: 100, image: 'https://cdn.poehali.dev/files/5b79067e-2514-4e95-83e6-a0d7ea51d9da.jpg', badges: ['Электр'] }
   ];
 
   const equipmentData = [
