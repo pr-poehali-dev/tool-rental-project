@@ -50,7 +50,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'screwdriver', name: 'Шуруповерт', price: 140, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/dd2430c0-4dd0-4080-958b-d377e7b10714.jpg', badges: ['18V'] },
     { id: 'jigsaw', name: 'Лобзик', price: 220, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/377e8f2d-35c6-43ff-85bd-7ae4fe7ee688.jpg', badges: ['Электро'] },
     { id: 'circular-saw', name: 'Циркулярная пила', price: 250, hourlyPrice: 100, image: 'https://cdn.poehali.dev/files/99b766fa-eb73-4444-af05-30de294c8d05.jpg', badges: ['190мм'] },
-    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 200, hourlyPrice: 80, image: '/img/7f49204b-35e2-4835-9e2c-02f1321bcd1e.jpg', badges: ['Аккум'] },
+    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 200, hourlyPrice: 80, image: 'https://cdn.poehali.dev/files/d8355907-bfeb-43f6-9373-5de872bba325.jpg', badges: ['Аккум'] },
     { id: 'perforator', name: 'Перфоратор', price: 600, hourlyPrice: 250, image: 'https://cdn.poehali.dev/files/defa717b-5e3d-4b40-930c-cf61c62e5c81.jpg', badges: ['SDS+'] },
     { id: 'heat-gun', name: 'Строительный фен', price: 100, hourlyPrice: 40, image: '/img/c595f387-16fe-4eb9-974a-401c46098843.jpg', badges: ['2000Вт'] },
     { id: 'renovator', name: 'Реноватор', price: 320, hourlyPrice: 130, image: 'https://cdn.poehali.dev/files/cedc8e4e-efe5-45c4-a448-40b5ac107452.jpg', badges: ['Насадки'] },
