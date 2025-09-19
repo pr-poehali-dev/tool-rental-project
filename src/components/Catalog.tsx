@@ -79,7 +79,7 @@ export default function Catalog({ addToCart }: CatalogProps) {
     { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 50, hourlyPrice: 20, image: 'https://cdn.poehali.dev/files/0a3b0459-1aae-4baf-a9f3-a797071ca17f.jpg', badges: ['42мм'] },
     { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 100, hourlyPrice: 40, image: 'https://cdn.poehali.dev/files/de474d95-c34d-48aa-aae0-54803392e1c5.jpg', badges: ['1000Вт'] },
     { id: 'stands', name: 'Козлы подпорки (пара)', price: 140, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/8078c877-8e4e-4976-99c1-f1f1dba114c6.jpg', badges: ['Складные'] },
-    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: '/img/b09373e0-024a-46f8-820f-b6e4b2b8711b.jpg', badges: ['50м'] },
+    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 90, hourlyPrice: 40, image: 'https://cdn.poehali.dev/files/237bb9c3-1a99-4f8e-8aca-30acf39e1d00.jpg', badges: ['50м'] },
     { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 50, hourlyPrice: 20, image: '/img/79882584-ad60-4dfc-8779-b9c6c447536b.jpg', badges: ['600мм'] },
     { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 70, hourlyPrice: 30, image: '/img/d50cfa22-ef13-49fc-aa90-8a8f767ca973.jpg', badges: ['Разные'] },
     { id: 'clamps', name: 'Струбцины', price: 50, hourlyPrice: 20, image: 'https://cdn.poehali.dev/files/279fabff-2482-455c-ace9-16b4cbd97e92.jpg', badges: ['F-обр'] },
