@@ -46,44 +46,44 @@ export default function Catalog({ addToCart }: CatalogProps) {
 
 
   const powerToolsData = [
-    { id: 'grinder', name: 'Болгарка', price: 405, hourlyPrice: 165, image: 'https://cdn.poehali.dev/files/fffc5ade-6a4c-4dc5-825e-86c2306dd36a.jpg', badges: ['125мм'] },
-    { id: 'screwdriver', name: 'Шуруповерт', price: 210, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/dd2430c0-4dd0-4080-958b-d377e7b10714.jpg', badges: ['18V'] },
-    { id: 'jigsaw', name: 'Лобзик', price: 330, hourlyPrice: 135, image: 'https://cdn.poehali.dev/files/377e8f2d-35c6-43ff-85bd-7ae4fe7ee688.jpg', badges: ['Электро'] },
-    { id: 'circular-saw', name: 'Циркулярная пила', price: 375, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/99b766fa-eb73-4444-af05-30de294c8d05.jpg', badges: ['190мм'] },
-    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 300, hourlyPrice: 120, image: 'https://cdn.poehali.dev/files/d8355907-bfeb-43f6-9373-5de872bba325.jpg', badges: ['Аккум'] },
-    { id: 'perforator', name: 'Перфоратор', price: 900, hourlyPrice: 375, image: 'https://cdn.poehali.dev/files/defa717b-5e3d-4b40-930c-cf61c62e5c81.jpg', badges: ['SDS+'] },
-    { id: 'heat-gun', name: 'Строительный фен', price: 150, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/86f9467d-2cdd-4b22-a4c9-dffae4496dde.jpg', badges: ['2000Вт'] },
-    { id: 'renovator', name: 'Реноватор', price: 480, hourlyPrice: 195, image: 'https://cdn.poehali.dev/files/cedc8e4e-efe5-45c4-a448-40b5ac107452.jpg', badges: ['Насадки'] },
+    { id: 'grinder', name: 'Болгарка', price: 608, hourlyPrice: 248, image: 'https://cdn.poehali.dev/files/fffc5ade-6a4c-4dc5-825e-86c2306dd36a.jpg', badges: ['125мм'] },
+    { id: 'screwdriver', name: 'Шуруповерт', price: 315, hourlyPrice: 135, image: 'https://cdn.poehali.dev/files/dd2430c0-4dd0-4080-958b-d377e7b10714.jpg', badges: ['18V'] },
+    { id: 'jigsaw', name: 'Лобзик', price: 495, hourlyPrice: 203, image: 'https://cdn.poehali.dev/files/377e8f2d-35c6-43ff-85bd-7ae4fe7ee688.jpg', badges: ['Электро'] },
+    { id: 'circular-saw', name: 'Циркулярная пила', price: 563, hourlyPrice: 225, image: 'https://cdn.poehali.dev/files/99b766fa-eb73-4444-af05-30de294c8d05.jpg', badges: ['190мм'] },
+    { id: 'reciprocating-saw', name: 'Сабельная пила', price: 450, hourlyPrice: 180, image: 'https://cdn.poehali.dev/files/d8355907-bfeb-43f6-9373-5de872bba325.jpg', badges: ['Аккум'] },
+    { id: 'perforator', name: 'Перфоратор', price: 1350, hourlyPrice: 563, image: 'https://cdn.poehali.dev/files/defa717b-5e3d-4b40-930c-cf61c62e5c81.jpg', badges: ['SDS+'] },
+    { id: 'heat-gun', name: 'Строительный фен', price: 225, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/86f9467d-2cdd-4b22-a4c9-dffae4496dde.jpg', badges: ['2000Вт'] },
+    { id: 'renovator', name: 'Реноватор', price: 720, hourlyPrice: 293, image: 'https://cdn.poehali.dev/files/cedc8e4e-efe5-45c4-a448-40b5ac107452.jpg', badges: ['Насадки'] },
 
-    { id: 'sander', name: 'Шлифовальная машинка', price: 420, hourlyPrice: 165, image: 'https://cdn.poehali.dev/files/ba34abe5-1cfc-4734-90bd-e6cc5eb6b4e4.jpg', badges: ['Орбитальная'] },
-    { id: 'planer', name: 'Электрорубанок', price: 375, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/0ae17cad-fe4f-4cec-952e-4790a1c2f3a9.jpg', badges: ['110мм'] },
-    { id: 'impact-wrench', name: 'Гайковёрт', price: 465, hourlyPrice: 195, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] },
-    { id: 'miter-saw', name: 'Торцовочная пила', price: 570, hourlyPrice: 225, image: 'https://cdn.poehali.dev/files/91ce55a9-9daa-4954-b87d-609f495af26f.jpg', badges: ['210мм'] },
-    { id: 'router', name: 'Фрезер', price: 435, hourlyPrice: 180, image: 'https://cdn.poehali.dev/files/41c775d7-842f-48f0-bed8-a388840c73c8.jpg', badges: ['Набор фрез'] },
-    { id: 'hole-saw-set', name: 'Набор кольцевых пил', price: 180, hourlyPrice: 75, image: 'https://cdn.poehali.dev/files/c03ee1cf-2fd5-48ec-8bfc-10d586094c4f.jpg', badges: ['В кейсе'] }
+    { id: 'sander', name: 'Шлифовальная машинка', price: 630, hourlyPrice: 248, image: 'https://cdn.poehali.dev/files/ba34abe5-1cfc-4734-90bd-e6cc5eb6b4e4.jpg', badges: ['Орбитальная'] },
+    { id: 'planer', name: 'Электрорубанок', price: 563, hourlyPrice: 225, image: 'https://cdn.poehali.dev/files/0ae17cad-fe4f-4cec-952e-4790a1c2f3a9.jpg', badges: ['110мм'] },
+    { id: 'impact-wrench', name: 'Гайковёрт', price: 698, hourlyPrice: 293, image: '/img/40568c3e-7785-4034-bcb0-ff6260bbbd0c.jpg', badges: ['1/2"'] },
+    { id: 'miter-saw', name: 'Торцовочная пила', price: 855, hourlyPrice: 338, image: 'https://cdn.poehali.dev/files/91ce55a9-9daa-4954-b87d-609f495af26f.jpg', badges: ['210мм'] },
+    { id: 'router', name: 'Фрезер', price: 653, hourlyPrice: 270, image: 'https://cdn.poehali.dev/files/41c775d7-842f-48f0-bed8-a388840c73c8.jpg', badges: ['Набор фрез'] },
+    { id: 'hole-saw-set', name: 'Набор кольцевых пил', price: 270, hourlyPrice: 113, image: 'https://cdn.poehali.dev/files/c03ee1cf-2fd5-48ec-8bfc-10d586094c4f.jpg', badges: ['В кейсе'] }
   ];
 
   const cleaningData = [
-    { id: 'steam-cleaner', name: 'Пароочиститель', price: 150, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/c3c49e1c-b376-4f49-8fec-2d23cdb5aab4.jpg', badges: ['1000Вт'] },
-    { id: 'window-cleaner', name: 'Мойщик окон', price: 405, hourlyPrice: 165, image: 'https://cdn.poehali.dev/files/7cce7346-02de-4803-b648-c29b7638899e.jpg', badges: ['Проф'] },
-    { id: 'vacuum-cleaner', name: 'Строительный пылесос', price: 360, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/8ee26e03-a531-42ef-b166-1c78201c4aa3.jpg', badges: ['1000Вт'] },
-    { id: 'paint-sprayer', name: 'Краскопульт', price: 345, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/5b79067e-2514-4e95-83e6-a0d7ea51d9da.jpg', badges: ['Электр'] }
+    { id: 'steam-cleaner', name: 'Пароочиститель', price: 225, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/c3c49e1c-b376-4f49-8fec-2d23cdb5aab4.jpg', badges: ['1000Вт'] },
+    { id: 'window-cleaner', name: 'Мойщик окон', price: 608, hourlyPrice: 248, image: 'https://cdn.poehali.dev/files/7cce7346-02de-4803-b648-c29b7638899e.jpg', badges: ['Проф'] },
+    { id: 'vacuum-cleaner', name: 'Строительный пылесос', price: 540, hourlyPrice: 225, image: 'https://cdn.poehali.dev/files/8ee26e03-a531-42ef-b166-1c78201c4aa3.jpg', badges: ['1000Вт'] },
+    { id: 'paint-sprayer', name: 'Краскопульт', price: 518, hourlyPrice: 225, image: 'https://cdn.poehali.dev/files/5b79067e-2514-4e95-83e6-a0d7ea51d9da.jpg', badges: ['Электр'] }
   ];
 
   const equipmentData = [
-    { id: 'electronic-level', name: 'Электронный уровень', price: 270, hourlyPrice: 112, image: 'https://cdn.poehali.dev/files/4c460c43-4339-4426-9819-881abe040c50.jpg', badges: ['Цифровой'] },
-    { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 360, hourlyPrice: 150, image: 'https://cdn.poehali.dev/files/af9802ac-1722-4864-ac3a-cb0f1ef6a757.jpg', badges: ['2,5Т'] },
-    { id: 'work-light', name: 'Прожектор строительный', price: 90, hourlyPrice: 38, image: 'https://cdn.poehali.dev/files/3104e474-1b90-4aa7-957c-315be271f774.jpg', badges: ['50Вт'] },
+    { id: 'electronic-level', name: 'Электронный уровень', price: 405, hourlyPrice: 168, image: 'https://cdn.poehali.dev/files/4c460c43-4339-4426-9819-881abe040c50.jpg', badges: ['Цифровой'] },
+    { id: 'hydraulic-jack', name: 'Домкрат подкатной', price: 540, hourlyPrice: 225, image: 'https://cdn.poehali.dev/files/af9802ac-1722-4864-ac3a-cb0f1ef6a757.jpg', badges: ['2,5Т'] },
+    { id: 'work-light', name: 'Прожектор строительный', price: 135, hourlyPrice: 57, image: 'https://cdn.poehali.dev/files/3104e474-1b90-4aa7-957c-315be271f774.jpg', badges: ['50Вт'] },
 
-    { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 98, hourlyPrice: 45, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
-    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 75, hourlyPrice: 30, image: 'https://cdn.poehali.dev/files/0a3b0459-1aae-4baf-a9f3-a797071ca17f.jpg', badges: ['42мм'] },
-    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 150, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/a3c09d6a-8319-4b9c-9213-a6636104849f.jpg', badges: ['1000Вт'] },
-    { id: 'stands', name: 'Козлы подпорки (пара)', price: 210, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/8078c877-8e4e-4976-99c1-f1f1dba114c6.jpg', badges: ['Складные'] },
-    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 135, hourlyPrice: 60, image: 'https://cdn.poehali.dev/files/237bb9c3-1a99-4f8e-8aca-30acf39e1d00.jpg', badges: ['50м'] },
-    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 75, hourlyPrice: 30, image: '/img/79882584-ad60-4dfc-8779-b9c6c447536b.jpg', badges: ['600мм'] },
-    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 105, hourlyPrice: 45, image: 'https://cdn.poehali.dev/files/9447e58d-d57f-4b04-8cf1-29dcd9e19a29.jpg', badges: ['Разные'] },
-    { id: 'clamps', name: 'Струбцины', price: 75, hourlyPrice: 30, image: 'https://cdn.poehali.dev/files/279fabff-2482-455c-ace9-16b4cbd97e92.jpg', badges: ['F-обр'] },
-    { id: 'rivet-gun', name: 'Клепальник', price: 120, hourlyPrice: 52, image: 'https://cdn.poehali.dev/files/d94c2f75-ee9f-4118-b623-4ad384dc6b7a.jpg', badges: ['Ручной'] }
+    { id: 'battery-charger', name: 'Зарядное устройство/пуск', price: 147, hourlyPrice: 68, image: '/img/65d208ad-24a9-4b01-9f36-3c91077d4f86.jpg', badges: ['12V'] },
+    { id: 'pipe-scissors', name: 'Ножницы для пластиковых труб', price: 113, hourlyPrice: 45, image: 'https://cdn.poehali.dev/files/0a3b0459-1aae-4baf-a9f3-a797071ca17f.jpg', badges: ['42мм'] },
+    { id: 'pipe-welder', name: 'Паяльник для пластиковых труб', price: 225, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/a3c09d6a-8319-4b9c-9213-a6636104849f.jpg', badges: ['1000Вт'] },
+    { id: 'stands', name: 'Козлы подпорки (пара)', price: 315, hourlyPrice: 135, image: 'https://cdn.poehali.dev/files/8078c877-8e4e-4976-99c1-f1f1dba114c6.jpg', badges: ['Складные'] },
+    { id: 'extension-cord', name: 'Удлинитель (катушка с кабелем)', price: 203, hourlyPrice: 90, image: 'https://cdn.poehali.dev/files/237bb9c3-1a99-4f8e-8aca-30acf39e1d00.jpg', badges: ['50м'] },
+    { id: 'magnetic-level', name: 'Длинный уровень на магните', price: 113, hourlyPrice: 45, image: '/img/79882584-ad60-4dfc-8779-b9c6c447536b.jpg', badges: ['600мм'] },
+    { id: 'straps-set', name: 'Набор стяжек/ленты/щипцы', price: 158, hourlyPrice: 68, image: 'https://cdn.poehali.dev/files/9447e58d-d57f-4b04-8cf1-29dcd9e19a29.jpg', badges: ['Разные'] },
+    { id: 'clamps', name: 'Струбцины', price: 113, hourlyPrice: 45, image: 'https://cdn.poehali.dev/files/279fabff-2482-455c-ace9-16b4cbd97e92.jpg', badges: ['F-обр'] },
+    { id: 'rivet-gun', name: 'Клепальник', price: 180, hourlyPrice: 78, image: 'https://cdn.poehali.dev/files/d94c2f75-ee9f-4118-b623-4ad384dc6b7a.jpg', badges: ['Ручной'] }
   ];
 
 
