@@ -23,7 +23,7 @@ export default function Contacts() {
               </div>
               <div className="flex items-center">
                 <Icon name="MapPin" className="text-primary mr-3" />
-                <span className="text-lg">г. Кандалакша, ул. Кировская, 42</span>
+                <span className="text-lg">г. Кандалакша, ул. Набережная</span>
               </div>
               <div className="flex items-center">
                 <Icon name="Clock" className="text-primary mr-3" />
