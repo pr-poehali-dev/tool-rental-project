@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import Catalog from "@/components/Catalog";
 import Pricing from "@/components/Pricing";
 import Conditions from "@/components/Conditions";
+import Testimonials from "@/components/Testimonials";
 import Contacts from "@/components/Contacts";
 import Footer from "@/components/Footer";
 
@@ -67,6 +68,7 @@ export default function Index() {
       <Catalog addToCart={addToCart} />
       <Pricing />
       <Conditions />
+      <Testimonials />
       <Contacts />
       <Footer />
     </div>
