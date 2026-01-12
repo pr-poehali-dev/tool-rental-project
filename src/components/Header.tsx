@@ -300,7 +300,6 @@ export default function Header({
               Звонок
             </Button>
           </div>
-          </div>
         </div>
       </div>
     </header>
