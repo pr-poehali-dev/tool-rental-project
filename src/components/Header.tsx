@@ -67,7 +67,7 @@ export default function Header({
     }).join('\n')}\n\n*Итого: ${getTotalPrice()}₽*\n\nПрошу связаться для оформления заказа.`;
     
     const encodedText = encodeURIComponent(orderText);
-    window.open(`https://wa.me/79508924419?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/79210386863?text=${encodedText}`, '_blank');
     setIsConfirmDialogOpen(false);
     setIsCartOpen(false);
     setCartItems([]);
@@ -87,7 +87,11 @@ export default function Header({
             <a href="#conditions" className="hover:text-gray-200 transition-colors">Условия</a>
             <a href="#contacts" className="hover:text-gray-200 transition-colors">Контакты</a>
           </nav>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-4">
+            <a href="tel:+79210386863" className="hidden md:flex items-center hover:text-gray-200 transition-colors">
+              <Icon name="Phone" size={18} className="mr-2" />
+              <span className="font-medium">+7 (921) 038-68-63</span>
+            </a>
             <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
               <SheetTrigger asChild>
                 <Button variant="secondary" size="sm" className="relative">
@@ -289,11 +293,13 @@ export default function Header({
             <Button 
               variant="secondary" 
               size="sm"
-              onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+              className="md:hidden"
+              onClick={() => window.open('tel:+79210386863', '_self')}
             >
               <Icon name="Phone" size={16} className="mr-2" />
               Звонок
             </Button>
+          </div>
           </div>
         </div>
       </div>
