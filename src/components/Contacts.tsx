@@ -15,7 +15,7 @@ export default function Contacts() {
             <div className="space-y-4 mb-8">
               <div className="flex items-center">
                 <Icon name="Phone" className="text-primary mr-3" />
-                <span className="text-lg">+7 (950) 892-44-19</span>
+                <span className="text-lg">+7 (921) 038-68-63</span>
               </div>
               <div className="flex items-center">
                 <Icon name="Mail" className="text-primary mr-3" />
@@ -33,7 +33,7 @@ export default function Contacts() {
             <div className="flex space-x-4">
               <Button 
                 className="bg-primary hover:bg-primary/90"
-                onClick={() => window.open('tel:+79508924419', '_self')}
+                onClick={() => window.open('tel:+79210386863', '_self')}
               >
                 <Icon name="Phone" size={16} className="mr-2" />
                 Позвонить
